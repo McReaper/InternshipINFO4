@@ -19,11 +19,11 @@ Voici une liste des différentes notions abordées :
     - Démonstration du montage d'une image PhaistOS avec le script `deploy` de Nicolas.
 - Présentation de la localisation des ordonanceurs une fois le système PhaistOS lancé, dans `/sys/block/sda/queue`, précisement dans le fichier `scheduler`.
 - Présentation de la compilation **Ocaml** nécessaire pour créer un ordonanceur sur un projet similaire (*Ipanema*).
-- Inscription au Gitlab INRIA et accès aux dépots Veriamos
+- Inscription au Gitlab INRIA et accès aux dépots Veriamos.
+- Lecture de la doc concernant PhaistOS sur les dépots associés.
 
 ## Pour la prochaine fois
 
- - Se familiariser avec le dépot Gitlab INRIA de Veriamos.
- - Lire la doc PhaistOS + préparer des questions.
+ - Poser des questions sur la doc lu aujourd'hui.
 
 ---
