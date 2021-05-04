@@ -28,4 +28,4 @@ L'objectif est de travailler sur le DSL **PhaistOS**, langage expressif de haut 
 
 ### Progression
 
-Voir fichier [journal.md](journal.md).
+Pour suivre l'évolution du stage, référez vous au fichier [journal.md](journal.md).
