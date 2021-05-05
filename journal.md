@@ -56,3 +56,31 @@ Lecture de la doc PhaistOS ainsi que le code des exemples des différents schedu
 
 - Espérer obtenir l'accès Grid5000.
 - Préparer des questions sur les aspects pas clair de la doc si nécessaire (On peut difficilement faire plus sans avoir accès à la partie technique).
+
+--- 
+
+# Journal du 5 Mai 2021
+
+## Ce qu'il reste à faire
+
+N/A.
+
+## Ce qui a été fait
+
+ - Acquisition des identifiants Grid'5000.
+ - Prise de note lors de l'étude du code noyau Linux modifié pour PhaistOS par une lecture des différents commits (revue de code sans commentaires) de Nick Papoulias sur GitLab :
+    - Compréhension de base du fonctionnement de la mutli-queue deadline de Linux grace au code source [ici](https://elixir.bootlin.com/linux/v5.12.1/source/block/mq-deadline.c) et à la doc [là](https://www.kernel.org/doc/html/latest/kbuild/index.html) mais aussi à wikipedia pour différentes notions qui m'ont posé des problèmes de compréhension du code :
+        - L'algorithme de l'ascenseur (elevator dans le code).
+        - Red Black Tree, un arbre binaire de recherche équilibré (kbtree dans le code).
+    - Le point précédent est important car PhaistOS reprend ce dernier pour fonctionner (si jamais un bug est trouvé il faudra surement revenir sur ce code).
+    - Compréhension de l'intêret des modifications du fichier **Kconfig.iosched** du kernel : ces modifications permettent d'intégrer facilement PhaistOS dans le noyau de Linux pour pouvoir l'ajouter et l'utiliser en tant qu'ordonanceur d'E/S en quelques lignes. Ce qui vient confirmer cette idée de "*plug-in*" citée la veille. *C'est bien fait Linux*.
+    - Il existe deux versions de l'ordonanceur MQ de PhaistOS, une **manuelle**, et une **automatique**. Cependant, je n'y vois aucune différence... Je trouverai des réponses demain.
+ - Interactions sociales réelles avec mon père qui est passé voir mon boulot.
+
+## Pour la prochaine fois
+
+ - Faire les premiers pas avec Grid'5000 en initialisant une connexion SSH avec un des serveurs Dahu de Grenoble tout en essayant de monter une image PḧaistOS pour faire appréhender le sujet.
+ - Continuer l'étude de PhaistOS, je n'ai pas tout compris sur l'origine **du dynamisme** que PhaistOS peut offrir (c'est à dire que je ne vois pas comment **ce code** C que j'ai lu peut charger différentes politiques à la volé), il faudra que je pose des questions à Nick.
+ - Commencer à lire le contenu du dépot PhaistOS-DSL et entamer la compréhension du code OCaml de PhaistOS (Le parser, la grammaire, etc.).
+
+---
