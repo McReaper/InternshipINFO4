@@ -95,11 +95,11 @@ Comprendre la structure et le fonctionement du DSL (partie OCaml).
 
  - Analyse des réponses de Nick à mes questions posées la veille :
     - mq-deadline a été choisit comme scheduler de base et réadapté pour PhaistOS pour plusieurs raisons qu'il cite dans son mail.
-    - PhaistOS ne prend pas en charge la compilation de nouveau modules à chaud. En effet Nick n'a pas encore implémenté cette fonctionnalité. En revanche Ipanema le fait, il faudra donc que je regarde comment Ipanema implémente cette fonctionnalité sans recompilé tout le kernel pour pouvoir peut être l'implémenté par la suite.
-    - La différence entre la version **auto** et **manuelle** de PhaistOS réside dans le fait que la version auto est générée (*je n'ai pas trop compris comment elle est générée par contre...*) et que la version manuelle est écrite par Nick, pour Nick, ça lui permet de vérifier/debuggé la sortie générée avec celle attendue
- - Envoit d'un mail de réponse à Nick avec de nouvelles questions auxquels je n'ai pas pu avoir de réponses pour l'instant, il faudra attendre que Nick soit officiellement en colaboration avec Nicolas pour qu'il puisse m'aider.
- - Etude du code PhaistOS-DSL mais j'ai eu beaucoup de mal à comprendre par où commencer et apparemment il y a plusieurs choses à l'intérieur (*c'est un peu un labyrinthe*) qui font des choses de manière différentes mais dans la même finalité (si j'en crois le README.md du dépôt). 
- - Début de prise en main des connexions SSH.
+    - PhaistOS ne prend pas en charge la compilation de nouveaux modules à chaud. En effet Nick n'a pas encore implémenté cette fonctionnalité. En revanche Ipanema le fait, il faudra donc que je regarde comment Ipanema implémente cette fonctionnalité sans recompiler tout le kernel pour pouvoir peut être l'implémenté par la suite dans PhaistOS.
+    - La différence entre la version **auto** et **manuelle** de PhaistOS réside dans le fait que la version auto est générée (*je n'ai pas trop compris comment elle est générée par contre...*) et que la version manuelle est écrite par Nick, pour Nick. Ça lui permet de vérifier/debugger la sortie générée avec celle attendue
+ - Envoit d'un mail de réponse à Nick avec de nouvelles questions auxquelles je n'ai pas pu avoir de réponses pour l'instant, il faudra attendre que Nick soit officiellement en collaboration avec Nicolas pour qu'il puisse m'aider.
+ - Etude du code PhaistOS-DSL, mais j'ai eu beaucoup de mal à comprendre par où commencer et apparemment il y a plusieurs choses à l'intérieur (*c'est un peu un labyrinthe*) qui font des choses de manière différentes mais dans la même finalité (si j'en crois le README.md du dépôt), d'où la difficulté d'appréhension. 
+ - Début de prise en main des connexions SSH et des réservations des clusters.
 
 ## Pour la prochaine fois
 
