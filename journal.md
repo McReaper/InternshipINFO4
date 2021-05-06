@@ -6,13 +6,13 @@ N/A.
 
 ## Ce qui a été fait
 
-Rendez-vous en visio-conférence avec Guillaume V. et Nicolas P. pour explication et présentation des outils que je serai amené à utiliser.
+Rendez-vous en visio-conférence avec Guillaume V. et Nicolas P. pour explications et présentation des outils que je serai amené à utiliser.
 
 Voici une liste des différentes notions abordées :
 
 - Stage de manière générale (déroulement en distanciel, présentiel **refusé** pour l'instant).
 - Outil Slack/Mattermost + BBB pour la communication audio.
-- Présentation & Inscription à la plateforme Grid5000, pour une utilisation SSH d'une machine d'un cluster Grenoblois.
+- Présentation & Inscription à la plateforme Grid'5000, pour une utilisation SSH d'une machine d'un cluster Grenoblois.
     - Explications nécessaires pour la communication SSH.
     - Présentation des contraintes d'utilisation (horaires principalement).
     - Brèves explications sur le fonctionement au niveau physique des serveurs.
@@ -42,7 +42,7 @@ Rendez-vous en visio-conférence et séance de questions/réponses par rapport �
  - Mise au point de la compréhension générale du fonctionement de *Ipanema* (Guillaume) et **PhaistOS** avec quelques détails d'explication.
  - Compléments d'explication sur la génération et la sauvegarde d'images systèmes mises à jour (outil de sauvegarde `tgz-g5k`).
  - Réponses sur le fonctionement de PhaistOS :
-    - Concernant le type de disque utilisé (SSD/SATA) : peu importe on peut pratiquer avec les deux mais dans le cadre du stage ce seront uniquement des disques SSD. 
+    - Concernant le type de disque utilisé (SSD/HDD) : peu importe on peut pratiquer avec les deux mais dans le cadre du stage ce seront uniquement des disques SSD. 
     - Pour les outils de tests (benchmarking), j'utiliserai les outils cités dans le *report*, avec par exemple `FIO benchmark`, `Compilebench`, `FS-Mark`, etc. Que j'importerai moi-même sur l'image pour effectuer mes tests.
     - Concernant l'implémentation de PhaistOS dans linux, elle reste un peu sombre car non-réalisée par Nicolas mais on aime à croire qu'il s'agit d'une implémentation simple qui demande juste à Linux d'utilise PhaistOS en tant qu'ordonanceur d'E/S via un lien dans le noyau ou autre chose qui s'en rapproche. (un peu comme un plug-in ducoup). C'est réponse vient de la question "Comment avez-vous implémenté cet ordonanceur sans cassé Linux ?".
     
@@ -79,8 +79,31 @@ N/A.
 
 ## Pour la prochaine fois
 
- - Faire les premiers pas avec Grid'5000 en initialisant une connexion SSH avec un des serveurs Dahu de Grenoble tout en essayant de monter une image PḧaistOS pour faire appréhender le sujet.
+ - Faire les premiers pas avec Grid'5000 en initialisant une connexion SSH avec un des serveurs Dahu de Grenoble tout en essayant de monter une image PhaistOS pour faire appréhender le sujet.
  - Continuer l'étude de PhaistOS, je n'ai pas tout compris sur l'origine **du dynamisme** que PhaistOS peut offrir (c'est à dire que je ne vois pas comment **ce code** C que j'ai lu peut charger différentes politiques à la volé), il faudra que je pose des questions à Nick.
  - Commencer à lire le contenu du dépot PhaistOS-DSL et entamer la compréhension du code OCaml de PhaistOS (Le parser, la grammaire, etc.).
+
+---
+
+# Journal du 6 Mai 2021
+
+## Ce qu'il reste à faire
+
+Comprendre la structure et le fonctionement du DSL (partie OCaml).
+
+## Ce qui a été fait
+
+ - Analyse des réponses de Nick à mes questions posées la veille :
+    - mq-deadline a été choisit comme scheduler de base et réadapté pour PhaistOS pour plusieurs raisons qu'il cite dans son mail.
+    - PhaistOS ne prend pas en charge la compilation de nouveau modules à chaud. En effet Nick n'a pas encore implémenté cette fonctionnalité. En revanche Ipanema le fait, il faudra donc que je regarde comment Ipanema implémente cette fonctionnalité sans recompilé tout le kernel pour pouvoir peut être l'implémenté par la suite.
+    - La différence entre la version **auto** et **manuelle** de PhaistOS réside dans le fait que la version auto est générée (*je n'ai pas trop compris comment elle est générée par contre...*) et que la version manuelle est écrite par Nick, pour Nick, ça lui permet de vérifier/debuggé la sortie générée avec celle attendue
+ - Envoit d'un mail de réponse à Nick avec de nouvelles questions auxquels je n'ai pas pu avoir de réponses pour l'instant, il faudra attendre que Nick soit officiellement en colaboration avec Nicolas pour qu'il puisse m'aider.
+ - Etude du code PhaistOS-DSL mais j'ai eu beaucoup de mal à comprendre par où commencer et apparemment il y a plusieurs choses à l'intérieur (*c'est un peu un labyrinthe*) qui font des choses de manière différentes mais dans la même finalité (si j'en crois le README.md du dépôt). 
+ - Début de prise en main des connexions SSH.
+
+## Pour la prochaine fois
+
+ - **Monter une image de PhaistOS** sur un cluster grenoblois via Grid'5000 pour jouer avec le DSL et voir comment il fonctionne de l'extérieur pour mieux appréhender le code.
+ - Prendre ses repères avec le code OCaml et poser des questions à Nicolas pour se débloquer.
 
 ---
