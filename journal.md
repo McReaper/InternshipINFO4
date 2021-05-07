@@ -107,3 +107,24 @@ Comprendre la structure et le fonctionement du DSL (partie OCaml).
  - Prendre ses repères avec le code OCaml et poser des questions à Nicolas pour se débloquer.
 
 ---
+
+# Journal du 6 Mai 2021
+
+## Ce qui n'a pas été fait
+
+Je n'ai pas pris le temps de tester le montage d'image d'un système sur un des serveurs.
+
+## Ce qui a été fait
+
+Dans l'ensemble cette journée n'a pas été très productive **sauf sur la fin**. Etant bloqué sur la compréhension du code je n'ai pas beaucoup avancé dans ma progression du stage aujourd'hui. A cela s'ajoute **le manque de motivation** et **de concentration** lié au distanciel.
+
+ - Compréhension du Code OCaml avec l'aide de Nicolas en fin de journée.
+ - Prise de repères dans l'arborescence de fichier du dépôt git de Nick malgré le manque de documentation (un vrai challenge pour s'y repérer sans aide extérieur) sur laquelle j'ai perdu beaucoup de temps sans rien comprendre jusqu'à l'aide de Nicolas.
+ - Compréhension de différents concept sur le parsing et la génération de Code de PhaistOS, il y a plusieurs niveaux de hierarchie (plusieurs grammaires). Le mieux serait de faire un schéma récapitulatif pour s'y retrouvé facilement. 
+
+## Pour la prochaine fois
+
+ - Faire un schéma récapitulatif du fonctionement du code Ocaml de PhaistOS
+ - Monter une image PhaistOS sur un des serveur du Cluster grenoblois.
+
+---
