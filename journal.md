@@ -120,7 +120,7 @@ Dans l'ensemble cette journée n'a pas été très productive **sauf sur la fin*
 
  - Compréhension du Code OCaml avec l'aide de Nicolas en fin de journée.
  - Prise de repères dans l'arborescence de fichier du dépôt git de Nick malgré le manque de documentation (un vrai challenge pour s'y repérer sans aide extérieur) sur laquelle j'ai perdu beaucoup de temps sans rien comprendre jusqu'à l'aide de Nicolas.
- - Compréhension de différents concept sur le parsing et la génération de Code de PhaistOS, il y a plusieurs niveaux de hierarchie (plusieurs grammaires). Le mieux serait de faire un schéma récapitulatif pour s'y retrouvé facilement. 
+ - Compréhension de différents concept sur le parsing et la génération de Code de PhaistOS, il y a plusieurs niveaux de hierarchie (plusieurs grammaires). Le mieux serait de faire un schéma récapitulatif pour s'y retrouvé facilement (il y a la notion de création de parser (lexer + menhir) et de générateur de code C avec des templates (Ocaml), **à approfondir car ce n'est pas encore très clair**). 
 
 ## Pour la prochaine fois
 
