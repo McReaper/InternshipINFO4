@@ -128,19 +128,28 @@ Dans l'ensemble cette journée n'a pas été très productive **sauf sur la fin*
 
 ---
 
-# Journal du 7 Mai 2021
+# Journal du 8 Mai 2021
 
 ## Ce qui n'a pas été fait
 
-N/A.
+ - Montage d'une image sur Grid'5000 (**je reporte ce travail** à plus tard quand j'aurai bien compris comment fonctionne PhaistOS).
 
 ## Ce qui a été fait
 
  - Reformulation de certaines phrases dans le journal.
- - 
+ - Clonage du dépôt git PhaistOS et installation des dépendances pour faire tourner le code OCaml.
+ - Découverte de Dune, un système de construction pour les projets OCaml. En l'utilisant, je peut créer les exécutables, des bibliothèques, ou des tests...
+ - Compréhension du principe de fonctionnement de Lexer et de Menhir pour la génération automatique de Parser en Ocaml.
+ - Compréhension de l'utilité de chacun des fichiers du Code organisé OCaml :
+    - `.ast` contient l'arbre d'AST du langage
+    - `.mll` contient les règles léxicales avec quelques actions sémanqtiques associées. Permet de créer un analyseur léxicale avec ocamllex : lexer.ml
+    - `.mly` contient les règles de grammaires avec certaines actions sémantique écrite en OCaml. Permet de créer un parser (et son interface) avec menhir : `parser.ml` & `parser.mli`.
+    - `.ml` qui sera un point d'entrée, utilisant le lexer et le parser.
+ - Début d'une étude du contenu de chaque sous-dossier du dossier PhaistOS-DSL. **Ma mission** sera d'aider n'importe quel nouveau venu à se repérer facilement dans chacun des sous-dossier. Pour cela, il faudra incorporer un Makefile qui permettra de générer les fichiers qui seront supprimés pour gagner en visibilité, ainsi qu'un README.md, pour décrire le rôle de chaque fichier.
 
 ## Pour la prochaine fois
 
-TODO
+ - Comprendre quel est le rôle de `queryableAst` dans Abstract-Syntax-Hierarchy (*peut être que c'est simplement un exemple qui ne sert pas dans PhaistOS*).
+ - Continuer l'étude et l'épuration du dossier Abstract-Syntax-Hierarchy, une fois celui-ci terminé (que j'aurai compris le rôle de chaque fichier source), le reste ira surement plus vite.
 
 ---
