@@ -33,7 +33,7 @@ Voici une liste des différentes notions abordées :
 ## Ce qu'il reste à faire
 
 1. Finir la lecture et la compréhension du contenu des fichiers de documentation
-2. Obtenir un accès à Grid5000 (toujours en attente).
+2. Obtenir un accès à Grid5000.
 
 ## Ce qui a été fait
 
@@ -44,7 +44,7 @@ Rendez-vous en visio-conférence et séance de questions/réponses par rapport �
  - Réponses sur le fonctionement de PhaistOS :
     - Concernant le type de disque utilisé (SSD/HDD) : peu importe on peut pratiquer avec les deux mais dans le cadre du stage ce seront uniquement des disques SSD. 
     - Pour les outils de tests (benchmarking), j'utiliserai les outils cités dans le *report*, avec par exemple `FIO benchmark`, `Compilebench`, `FS-Mark`, etc. Que j'importerai moi-même sur l'image pour effectuer mes tests.
-    - Concernant l'implémentation de PhaistOS dans linux, elle reste un peu sombre car non-réalisée par Nicolas mais on aime à croire qu'il s'agit d'une implémentation simple qui demande juste à Linux d'utilise PhaistOS en tant qu'ordonanceur d'E/S via un lien dans le noyau ou autre chose qui s'en rapproche. (un peu comme un plug-in ducoup). C'est réponse vient de la question "Comment avez-vous implémenté cet ordonanceur sans cassé Linux ?".
+    - Concernant l'implémentation de PhaistOS dans linux, elle reste un peu sombre car non-réalisée par Nicolas mais on aime à croire qu'il s'agit d'une implémentation simple qui demande juste à Linux d'utilise PhaistOS en tant qu'ordonanceur d'E/S via un lien dans le noyau ou autre chose qui s'en rapproche (un peu comme un plug-in ducoup). Cette réponse vient de la question "Comment avez-vous implémenté cet ordonanceur sans cassé Linux ?".
     
 Concernant les preuves générées avec la logique linéaire (**Linear Logic**) : Monsieur Palix m'a fait comprendre que cet aspect là de PhaistOS ne faisait pas l'objet de mon stage et qu'il n'était pas nécessaire de m'attarder la dessus (même si cet aspect occupe la moitié du sujet de recherche). Cependant après quelques recherches j'ai pu appréhender les bases du sujet, même si j'ai encore du mal à faire le lien avec le système de preuve.
 
@@ -54,8 +54,8 @@ Lecture de la doc PhaistOS ainsi que le code des exemples des différents schedu
 
 ## Pour la prochaine fois
 
-- Espérer obtenir l'accès Grid5000.
-- Préparer des questions sur les aspects pas clair de la doc si nécessaire (On peut difficilement faire plus sans avoir accès à la partie technique).
+- Obtenir l'accès Grid5000.
+- Préparer des questions sur les aspects pas clair de la doc/du code si nécessaire.
 
 --- 
 
@@ -80,7 +80,7 @@ N/A.
 ## Pour la prochaine fois
 
  - Faire les premiers pas avec Grid'5000 en initialisant une connexion SSH avec un des serveurs Dahu de Grenoble tout en essayant de monter une image PhaistOS pour faire appréhender le sujet.
- - Continuer l'étude de PhaistOS, je n'ai pas tout compris sur l'origine **du dynamisme** que PhaistOS peut offrir (c'est à dire que je ne vois pas comment **ce code** C que j'ai lu peut charger différentes politiques à la volé), il faudra que je pose des questions à Nick.
+ - Continuer l'étude de PhaistOS, je n'ai pas tout compris sur l'origine **du dynamisme** que PhaistOS peut offrir (c'est à dire que je ne vois pas comment **ce code** C que j'ai lu peut charger différentes politiques à la volé), il faudra que je pose des questions à Nick pour mieux comprendre.
  - Commencer à lire le contenu du dépot PhaistOS-DSL et entamer la compréhension du code OCaml de PhaistOS (Le parser, la grammaire, etc.).
 
 ---
@@ -97,8 +97,8 @@ Comprendre la structure et le fonctionement du DSL (partie OCaml).
     - mq-deadline a été choisit comme scheduler de base et réadapté pour PhaistOS pour plusieurs raisons qu'il cite dans son mail.
     - PhaistOS ne prend pas en charge la compilation de nouveaux modules à chaud. En effet Nick n'a pas encore implémenté cette fonctionnalité. En revanche Ipanema le fait, il faudra donc que je regarde comment Ipanema implémente cette fonctionnalité sans recompiler tout le kernel pour pouvoir peut être l'implémenté par la suite dans PhaistOS.
     - La différence entre la version **auto** et **manuelle** de PhaistOS réside dans le fait que la version auto est générée (*je n'ai pas trop compris comment elle est générée par contre...*) et que la version manuelle est écrite par Nick, pour Nick. Ça lui permet de vérifier/debugger la sortie générée avec celle attendue
- - Envoit d'un mail de réponse à Nick avec de nouvelles questions auxquelles je n'ai pas pu avoir de réponses pour l'instant, il faudra attendre que Nick soit officiellement en collaboration avec Nicolas pour qu'il puisse m'aider.
- - Etude du code PhaistOS-DSL, mais j'ai eu beaucoup de mal à comprendre par où commencer et apparemment il y a plusieurs choses à l'intérieur (*c'est un peu un labyrinthe*) qui font des choses de manière différentes mais dans la même finalité (si j'en crois le README.md du dépôt), d'où la difficulté d'appréhension. 
+ - Envoit d'un mail de réponse à Nick avec de nouvelles questions auxquelles Nicolas m'a répondu pour alléger la charge de Nick qui ne travail officielement plus sur le projet.
+ - Etude du code du DSL. J'ai eu du mal à comprendre l'arborescence de fichiers du dépôt. Il y a plusieurs notions à l'intérieur qui font des choses de manière différentes mais dans la même finalité (si j'en crois le README.md de la racine). Une tâche difficile à laquelle je vais avoir besoin d'un coup de main.
  - Début de prise en main des connexions SSH et des réservations des clusters.
 
 ## Pour la prochaine fois
@@ -108,7 +108,7 @@ Comprendre la structure et le fonctionement du DSL (partie OCaml).
 
 ---
 
-# Journal du 6 Mai 2021
+# Journal du 7 Mai 2021
 
 ## Ce qui n'a pas été fait
 
@@ -118,13 +118,29 @@ Je n'ai pas pris le temps de tester le montage d'image d'un système sur un des 
 
 Dans l'ensemble cette journée n'a pas été très productive **sauf sur la fin**. Etant bloqué sur la compréhension du code je n'ai pas beaucoup avancé dans ma progression du stage aujourd'hui. A cela s'ajoute **le manque de motivation** et **de concentration** lié au distanciel.
 
- - Compréhension du Code OCaml avec l'aide de Nicolas en fin de journée.
- - Prise de repères dans l'arborescence de fichier du dépôt git de Nick malgré le manque de documentation (un vrai challenge pour s'y repérer sans aide extérieur) sur laquelle j'ai perdu beaucoup de temps sans rien comprendre jusqu'à l'aide de Nicolas.
- - Compréhension de différents concept sur le parsing et la génération de Code de PhaistOS, il y a plusieurs niveaux de hierarchie (plusieurs grammaires). Le mieux serait de faire un schéma récapitulatif pour s'y retrouvé facilement (il y a la notion de création de parser (lexer + menhir) et de générateur de code C avec des templates (Ocaml), **à approfondir car ce n'est pas encore très clair**). 
+ - Prise de repères dans l'arborescence de fichier du dépôt git de Nick grace à l'aide de Nicolas qui m'a expliqué comment intéragissent les différents fichiers entre eux (compréhension du code OCaml), tout en m'expliquant leur rôle dans le DSL.
+ - Compréhension de différents concept sur le parsing et la génération de Code de PhaistOS, il y a plusieurs niveaux de hierarchie (plusieurs grammaires). Le mieux serait de faire un schéma récapitulatif pour s'y retrouvé facilement (il y a la notion de création de parser (lexer + menhir) et de générateur de code C avec des templates (Ocaml), **à approfondir car ce n'est pas encore très clair dans mon esprit**). 
 
 ## Pour la prochaine fois
 
  - Faire un schéma récapitulatif du fonctionement du code Ocaml de PhaistOS
  - Monter une image PhaistOS sur un des serveur du Cluster grenoblois.
+
+---
+
+# Journal du 7 Mai 2021
+
+## Ce qui n'a pas été fait
+
+N/A.
+
+## Ce qui a été fait
+
+ - Reformulation de certaines phrases dans le journal.
+ - 
+
+## Pour la prochaine fois
+
+TODO
 
 ---
