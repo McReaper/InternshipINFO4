@@ -1,3 +1,31 @@
+# Journal du 11 Mai 2021
+
+## Ce qui n'a pas été fait
+
+ - Création des fichiers Makefile et README.md.
+ - Je n'ai pas encore bien compris quel est l'intêret d'avoir un système d'AST intérogeable (queryable) ... Je pense que c'est le même principe que celui du visiteur (visitor) , mais rien n'est sûr.
+
+## Ce qui a été fait
+
+ - Bilan récapitulatif de la compréhension des rôles de certains fichier du dossier `Abstract-SYntax-Hierarchy` (**ces informations iront très problablement dans le README.md**) :
+   - `*.ast` : des fichiers qui décrivent la stucture d'un AST.
+   - `qAstGrammar.mly` : décrit la grammaire des AST.
+   - `qAstLexer.ml` : décrit les différents mots/lettres qu'on peut rencontrer dans la grammaire.
+   - `qAstParser.ml` : Point d'entrée qui utilise le lexer et le parser et qui va générer du code source OCaml
+   - `queryableAst.ml` : J'ai l'impression que c'est le code du visiteur (ou du moins un code partiel).
+   - `visitorInternalDsl.ml` : déinit une série de fonction ocaml que `queryableAst.ml` utilise dans un format (non-ocaml) que je ne connais pas... Je poserai des questions demain.
+   - `dune` : Makefile "à la" Ocaml utilisé pour build l'exécutable `qAstParser.exe`.
+   - `dune-project` : liste les dépendances de dune.
+   - `merlin-init.sh` : met en place **merlin** pour le dossier en cours pour pouvoir travailler sur le code source ocaml avec les IDE **emacs** ou **vim**.
+   - *reste* : fichers générés par **dune** ou **qAstParser.exe**.
+
+## Pour la prochaine fois
+
+ - Création des fichiers Makefile et README.md.
+ - Comprendre pourquoi queryableAst est différent d'un visiteur **+** comprendre la partie du code de `queryableAst.ml` qui n'est pas en OCaml pour connaître sa finalité.
+
+---
+
 # Journal du 10 Mai 2021
 
 ## Ce qui n'a pas été fait
