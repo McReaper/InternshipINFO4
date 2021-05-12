@@ -1,3 +1,23 @@
+# Journal du 12 Mai 2021
+
+## Ce qui n'a pas été fait
+
+ - Pas de Makefile car pas nécessaire pour Abstract-Syntax-Hierarchy (*à revoir*).
+ - Pas encore push les modifications sur le repo distant, j'attend plus de clarification sur certaines choses.
+
+## Ce qui a été fait
+
+ - Lecture et assimilation du code OCaml dans le dossier Abstract-Syntax-Hierarchy : compréhension du rôle de chaque fichier source, y compris `queryableAst.ml` qui a pour rôle de généré du code Ocaml depuis des templates et l'AST parsé.
+ - Rédaction du README.md sur la nouvelle branche `victor` (*pas encore de commit tant que le travail d'un dossier n'est pas terminé*) pour un début de documentation du dossier associé.
+ - Supression de certains fichiers doublons et d'autres fichiers générés.
+ - Lecture de différents commits de Nick à l'époque où le dépôt PhaistOS-DSL n'était qu'à ses débuts (ça m'a aidé à comprendre certaines parties du code).
+
+## Pour la prochaine fois
+
+ - Faire le README.md d'un maximum de dossier et effacer les fichiers générés en proposant un Makefile si nécessaire.
+
+---
+
 # Journal du 11 Mai 2021
 
 ## Ce qui n'a pas été fait
