@@ -1,3 +1,25 @@
+
+# Journal du 17 Mai 2021
+
+*Il est à noter que j'avais la réunion de perfectionnement de Polytech aujourd'hui à 14h, donc ma journée à été coupée en deux.*
+
+## Ce qui n'a pas été fait
+
+N/A.
+
+## Ce qui a été fait
+
+ - Premier commit sur la branche `victor` du dépôt GitLab *PhaistOS* concernant le dossier de développement ASH : finalisation du README et de la compréhension du rôle de chacun des fichier.
+ - J'ai commencé à lire et comprendre le rôle des fichiers du dossier `Abstract-Template-Visitor`, je rédiregrai un README.md plus tard.
+ - J'ai déployé avec Guillaume ma première image sur Grid'5000, puis j'ai fais des modifications et je l'ai sauvegardé. Prochaine étape : *déployer phaistOS*.
+
+## Pour la prochaine fois
+
+ - Déployer une image PhaistOS sur Grid'5000
+ - Continur de rédiger les README.md des dossiers de développement
+
+---
+
 # Journal du 12 Mai 2021
 
 ## Ce qui n'a pas été fait
