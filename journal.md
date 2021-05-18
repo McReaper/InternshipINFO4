@@ -1,8 +1,7 @@
 # Jpurnal du 18 Mai 2021
 
-> "*Ma motivation n'a jamais été aussi grande !*" - Palpatine, *Star Wars*.
----
->> ce qui n'est pas mon cas malheureusement : le travail en distanciel est vraiment compliqué et j'éprouve de réelles difficultés à me concentrer.
+"*Ma motivation n'a jamais été aussi grande !*" - Palpatine, *Star Wars*.
+> ce qui n'est pas mon cas malheureusement : le travail en distanciel est vraiment compliqué et j'éprouve de réelles difficultés à me concentrer.
 
 ## Ce qui n'a pas été fait
 
