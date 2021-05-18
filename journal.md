@@ -1,3 +1,27 @@
+# Jpurnal du 18 Mai 2021
+
+> "*Ma motivation n'a jamais été aussi grande !*" - Palpatine, *Star Wars*.
+---
+>> ce qui n'est pas mon cas malheureusement : le travail en distanciel est vraiment compliqué et j'éprouve de réelles difficultés à me concentrer.
+
+## Ce qui n'a pas été fait
+
+ - Documentation des README.md des dossiers sources
+
+## Ce qui a été fait
+
+ - Montage d'une image debian dans laquelle j'ai cloné le noyau linux modifié de PhaistOS.
+   - Après make et compilation du noyau j'ai remarqué que les images comportées le term `-dirty` à la fin de chacune d'elle. *Pourquoi ?*
+   - Je n'ai pas réussi à reboot sur l'image après la commande `grub-reboot '1>0'` (écran noir). A voir pourquoi ce comportement...
+   > Ducoup je n'ai pas pu sauvegarder l'image et donc les données modifiées sur l'image en cours d'utilisation, j'essairai de résoudre le problème demain.
+ - J'ai envoyé un mail à la secrétaire Mme. Poulet pour essayer de négocier un jour de présentiel à l'IMAG. Et c'est **possible** désormais. Je négocierai donc avec M. Palix un jour entre Lundi ou Vendredi.
+
+## Pour la prochaine fois
+
+ - Documentation du code source.
+ - Montage et sauvegarde d'une image PhaistOS.
+
+---
 
 # Journal du 17 Mai 2021
 
