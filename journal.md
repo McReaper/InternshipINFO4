@@ -1,4 +1,26 @@
-# Jpurnal du 18 Mai 2021
+# Journal du 19 Mai 2021
+
+## Ce qui n'a pas été fait
+
+ - Pas d'avancement sur le code source aujourd'hui.
+
+## Ce qui a été fait
+
+ - Appel avec Nicolas le matin pour débloquer nos problèmes avec Guillaume concernant l'installation du noyau :
+   - Aide avec le fichier de config d'installation du noyau modifié.
+   - Explication de certaines commandes et de l'interaction distante avec les machines en phase de redémarrage.
+   - Prise de note de manière générale de comment configurer l'environement à lancer via Grid'5000...
+ - Création d'une image PhaistOS à partir d'un système debian dans lequel on a remplacé le noyau du système avec la version modifiée.
+ - Plusieurs manipulations des fichiers grub pour y trouver/modifier des informations.
+ - Nous avons pu négocier un jour en **présentiel** au labo les vendredi dorénavant 😎. 
+
+## Pour la prochaine fois
+
+ - Retourner sur le code. Maintenant qu'on a l'image du système dans son coin : on peut retourner sur la compréhension et la documentation générale du code.
+
+---
+
+# Journal du 18 Mai 2021
 
 "*Ma motivation n'a jamais été aussi grande !*" - Palpatine, *Star Wars*.
 > ce qui n'est pas mon cas malheureusement : le travail en distanciel est vraiment compliqué et j'éprouve de réelles difficultés à me concentrer.
@@ -13,7 +35,7 @@
    - Après make et compilation du noyau j'ai remarqué que les images comportées le term `-dirty` à la fin de chacune d'elle. *Pourquoi ?*
    - Je n'ai pas réussi à reboot sur l'image après la commande `grub-reboot '1>0'` (écran noir). A voir pourquoi ce comportement...
    > Ducoup je n'ai pas pu sauvegarder l'image et donc les données modifiées sur l'image en cours d'utilisation, j'essairai de résoudre le problème demain.
- - J'ai envoyé un mail à la secrétaire Mme. Poulet pour essayer de négocier un jour de présentiel à l'IMAG. Et c'est **possible** désormais. Je négocierai donc avec M. Palix un jour entre Lundi ou Vendredi.
+ - J'ai envoyé un mail à la secrétaire Mme.Poulet pour essayer de négocier un jour de présentiel à l'IMAG. Et c'est **possible** désormais. Je négocierai donc avec M. Palix un jour entre Lundi ou Vendredi.
 
 ## Pour la prochaine fois
 
