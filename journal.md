@@ -1,3 +1,24 @@
+# Journal du 20 & 21 Mai 2021
+
+## Ce qui n'a pas été fait
+
+ - Les clusters grenoblois n'étaient pas disponible aujourd'hui, j'ai donc continué à lire le code source de développement de Nick pour approfondir ma compréhesion du sujet.
+
+## Ce qui a été fait
+
+ - Ecriture de plusieurs README.md pour certains dossier de code source dont j'ai compris le rôle. 
+   > Malheureusement, un fichier récurrent (qui revient dans plusieurs dossiers) me pose problème car je ne comprends pas son rôle : **io_externs.phaistos**. C'est un fichier qui est sensé être écrit dans le langage du DSL PhaistOS mais qui ne reprend pas les règles précédemment citées dans le papier écrit par Nicolas et Nick...
+   >> Après quelques questions j'ai compris que ce fichier était automatiquement concaténé au début du fichier édité par "l'utilisateur" pour exprimer l'existance de fonctions présentes dans le kernel ou même de variables, ainsi que les contraintes attendues dans le contenu du fichier de l'utilisateur.
+ - Visitie des locaux de l'IMAG avec Nicolas et Guillaume (visite incluant celle du DATA Center, très intéressant.)
+ - Aide de Guillaume sur son problème d'utilisation avec Kameleon, un outil de recette pour créer des images système sur Grid'5000.
+ - Compréhension du dossier TypeSystem, je ferai sa documentation dans son README.md Lundi.
+
+## Pour la prochaine fois
+
+ - Documentation du principe de fonctionement du dossier de développement TypeSystem.
+
+---
+
 # Journal du 19 Mai 2021
 
 ## Ce qui n'a pas été fait
