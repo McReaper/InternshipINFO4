@@ -1,3 +1,26 @@
+# Journal du 25 Mai 2021
+
+## Ce qui n'a pas été fait
+
+N/A.
+
+## Ce qui a été fait
+
+ - Ecriture du README des dossier `TypeSystem` et `Input-Scripts` du code source.
+ - Concernant `TypeSystem`, j'ai fais du ménage dans le dossier (quelques fichiers et dossiers générables qui étaient présents) et créer un **Makefile** pour générer, compiler le code source, et tout ces genres de choses ! Le README.md résume bien tout ce qu'il est possible de faire dans ce dossier.
+ > L'étape la plus dure concernant TypeSystem était de comprendre son rôle, voici une decription que j'ai pu fournir du code s'y trouvant (extrait du README.md) :
+ >> " The goal here is to check wether the types used in the user policy are coherent or not. By going trought the AST in two passes (once going down and once going back up to check if types encountered are correct). "
+   - J'y ai surtout retrouvé des fichiers ressemblant aux dossiers ATV et ASH (voir [11 Mai](#Journal du 11 Mai 2021)).
+   - La particularité de TypeSystem est qu'il utilise le code du dossier ATV, ce qui le rend plutôt intéressant et complexe.
+
+Je n'ai pas le temps de finir le journal pour aujourd'hui mais mes commits du 25 Mai sont représentatifs du travail effectué.
+
+## Pour la prochaine fois
+
+ - Continuer l'exploration/compréhension/documentation des dossiers restants.
+
+---
+
 # Journal du 20 & 21 Mai 2021
 
 ## Ce qui n'a pas été fait
@@ -10,8 +33,8 @@
    > Malheureusement, un fichier récurrent (qui revient dans plusieurs dossiers) me pose problème car je ne comprends pas son rôle : **io_externs.phaistos**. C'est un fichier qui est sensé être écrit dans le langage du DSL PhaistOS mais qui ne reprend pas les règles précédemment citées dans le papier écrit par Nicolas et Nick...
    >> Après quelques questions j'ai compris que ce fichier était automatiquement concaténé au début du fichier édité par "l'utilisateur" pour exprimer l'existance de fonctions présentes dans le kernel ou même de variables, ainsi que les contraintes attendues dans le contenu du fichier de l'utilisateur.
  - Visitie des locaux de l'IMAG avec Nicolas et Guillaume (visite incluant celle du DATA Center, très intéressant.)
- - Aide de Guillaume sur son problème d'utilisation avec Kameleon, un outil de recette pour créer des images système sur Grid'5000.
- - Compréhension du dossier TypeSystem, je ferai sa documentation dans son README.md Lundi.
+ - Aide rapide pour Guillaume sur son problème d'utilisation avec Kameleon, un outil de recette pour créer des images système sur Grid'5000.
+ - Compréhension du dossier TypeSystem, je ferai sa documentation dans son README.md Mardi.
 
 ## Pour la prochaine fois
 
