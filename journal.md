@@ -10,7 +10,7 @@ N/A.
  - Concernant `TypeSystem`, j'ai fais du ménage dans le dossier (quelques fichiers et dossiers générables qui étaient présents) et créer un **Makefile** pour générer, compiler le code source, et tout ces genres de choses ! Le README.md résume bien tout ce qu'il est possible de faire dans ce dossier.
  > L'étape la plus dure concernant TypeSystem était de comprendre son rôle, voici une decription que j'ai pu fournir du code s'y trouvant (extrait du README.md) :
  >> " The goal here is to check wether the types used in the user policy are coherent or not. By going trought the AST in two passes (once going down and once going back up to check if types encountered are correct). "
-   - J'y ai surtout retrouvé des fichiers ressemblant aux dossiers ATV et ASH (voir [11 Mai](#Journal du 11 Mai 2021)).
+   - J'y ai surtout retrouvé des fichiers ressemblant aux dossiers ATV et ASH (voir 11 Mai).
    - La particularité de TypeSystem est qu'il utilise le code du dossier ATV, ce qui le rend plutôt intéressant et complexe.
 
 Je n'ai pas le temps de finir le journal pour aujourd'hui mais mes commits du 25 Mai sont représentatifs du travail effectué.
