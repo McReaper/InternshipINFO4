@@ -1,3 +1,19 @@
+# Journal du 26 Mai 2021
+
+*Voici des photos des locaux que j'avais prises vendredi dernier :*
+
+| Bureau | Cour intérieure |
+| ------ | --------------- |
+| ![](bureau_imag.jpg) | ! [](cour_intérieure.jpg) |
+
+## Ce qui n'a pas été fait
+
+## Ce qui a été fait
+
+## Pour la prochaine fois
+
+---
+
 # Journal du 25 Mai 2021
 
 ## Ce qui n'a pas été fait
