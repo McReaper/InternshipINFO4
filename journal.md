@@ -6,11 +6,26 @@
 | ------ | --------------- |
 | ![](bureau_imag.jpg) | ![](cour_interieure.jpg) |
 
+
 ## Ce qui n'a pas été fait
+
+RAS.
 
 ## Ce qui a été fait
 
+Aujourd'hui j'ai attaqué la partie du code qui effectue la génération de code C. Je me suis rendu compte que la même technique est utilisé un petit peu de partout mais le code du Visiteur était modifié pour pouvoir correspondre à une certaine finalité. 
+
+Ici dans le dossier `Parser` on retrouve une structure de code similaire au dossier de la veille (càd `TypeSystem`), à l'exception que le visiteur traduit le code des fichier `.phaistos` en code source `.c` au lieu d'exercer une vérification.
+
+J'ai commencé à écrire le README.md et un Makefile que je finirais demain.
+
+Cependant des points restes à éclaircir sur certains point du code, surtout le fait que le code ainsi présent génère un fichier `.csv` dont je ne comprend pas l'intêret (on dirait une sorte d'excel qui liste des repères dans le code)... 
+
+Il y a aussi la commande de compilation pré-processeur `cpp -P` qui faut que je creuse.
+
 ## Pour la prochaine fois
+
+Continuer dans la lancée.
 
 ---
 
@@ -18,7 +33,7 @@
 
 ## Ce qui n'a pas été fait
 
-N/A.
+RAS.
 
 ## Ce qui a été fait
 
@@ -110,7 +125,7 @@ Je n'ai pas le temps de finir le journal pour aujourd'hui mais mes commits du 25
 
 ## Ce qui n'a pas été fait
 
-N/A.
+RAS.
 
 ## Ce qui a été fait
 
@@ -258,7 +273,7 @@ Comprendre la structure et le fonctionement du DSL (partie OCaml).
 
 ## Ce qu'il reste à faire
 
-N/A.
+RAS.
 
 ## Ce qui a été fait
 
@@ -315,7 +330,7 @@ Lecture de la doc PhaistOS ainsi que le code des exemples des différents schedu
 
 ## Ce qu'il reste à faire
 
-N/A.
+RAS.
 
 ## Ce qui a été fait
 
