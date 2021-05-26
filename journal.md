@@ -4,7 +4,7 @@
 
 | Bureau | Cour intérieure |
 | ------ | --------------- |
-| ![](bureau_imag.jpg) | ! [](cour_intérieure.jpg) |
+| ![](bureau_imag.jpg) | ![](cour_interieure.jpg) |
 
 ## Ce qui n'a pas été fait
 
