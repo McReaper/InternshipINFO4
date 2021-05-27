@@ -1,3 +1,29 @@
+# Journal du 27 Mai 2021
+
+## Ce qui n'a pas été fait
+
+RAS.
+
+## Ce qui a été fait
+
+ - Concernant le dossier `Parser` qui s'occupe de la génération de code C à partir des fichiers `.phaistos` :
+   - J'ai pu comprendre grace au script de génération que la commande `cpp -P` effectuait une étape de compilation pré-processeur qui permet au code généré de se modifier en fonction de certaines règles d'en-tête (`#define`). Ce point n'est donc pas crutial mais permet de savoir que phaistos va potentiellement fournir au Kernel des fichiers sources pré-compilés (à voir : *pourquoi ? Qu'est-ce que ça apporte de la faire maintenant et pas plus tard ? Peut être que c'est une règle de base d'implémentation de code source dans le noyau.* Je poserai la question demain à Nicolas).
+   - J'ai aussi compris le rôle qu'a le fichier `smap.csv` généré lors du parsing du fichier `.phaistos`. Il permet enfaite de lister les information de l'AST sur chaque noeud par rapport au fichier entrant (`deadline.phaistos` par exemple) en donnant les lignes correspondantes. Et de faire le lien avec le fichier de sortie en donnant les lignes correspondantes.
+      > Par exemple la ligne suivante du fichier smap.csv : 
+      >> 192,varDeclaration,18,18,topLevel,12,12
+      > Indique un noeud de l'arbre d'ID 192 de type "déclaration de variable" de la ligne 18 à 18 dans le fichier "deadline.phaistos", c'est une déclaration de haut-niveau (celui du DSL), qui se retrouve de la ligne 12 à 12 dans le fichier C de sortie.
+   - J'ai documenté un README.md et réalisé un Makefile comme pour le dossier `TypeSystem`.
+ - J'ai modifié légèrement le README.md du dossier `TypeSystem`.
+
+## Pour la prochaine fois
+
+ - Poser les questions suivantes :
+   - `TypeSystem` : combien de passes dans l'AST sont réellements effectuées ?
+   - `Parser` : *la question en italique ci-dessus.*
+   - `TypeSystem` & `Parser` : Quels sont le réel rôle des templates "default" et "topLevel" ?
+
+---
+
 # Journal du 26 Mai 2021
 
 *Voici des photos des locaux que j'avais prises vendredi dernier :*
@@ -17,9 +43,9 @@ Aujourd'hui j'ai attaqué la partie du code qui effectue la génération de code
 
 Ici dans le dossier `Parser` on retrouve une structure de code similaire au dossier de la veille (càd `TypeSystem`), à l'exception que le visiteur traduit le code des fichier `.phaistos` en code source `.c` au lieu d'exercer une vérification.
 
-J'ai commencé à écrire le README.md et un Makefile que je finirais demain.
+J'ai commencé à écrire le README.md et un Makefile que je finirai demain.
 
-Cependant des points restes à éclaircir sur certains point du code, surtout le fait que le code ainsi présent génère un fichier `.csv` dont je ne comprend pas l'intêret (on dirait une sorte d'excel qui liste des repères dans le code)... 
+Cependant des points restes à éclaircir sur certains aspects du code, surtout le fait que le code ainsi présent génère un fichier `.csv` dont je ne comprend pas l'intêret (on dirait une sorte de fiche qui liste des repères dans le code)... 
 
 Il y a aussi la commande de compilation pré-processeur `cpp -P` qui faut que je creuse.
 
@@ -39,8 +65,8 @@ RAS.
 
  - Ecriture du README des dossier `TypeSystem` et `Input-Scripts` du code source.
  - Concernant `TypeSystem`, j'ai fais du ménage dans le dossier (quelques fichiers et dossiers générables qui étaient présents) et créer un **Makefile** pour générer, compiler le code source, et tout ces genres de choses ! Le README.md résume bien tout ce qu'il est possible de faire dans ce dossier.
- > L'étape la plus dure concernant TypeSystem était de comprendre son rôle, voici une decription que j'ai pu fournir du code s'y trouvant (extrait du README.md) :
- >> " The goal here is to check wether the types used in the user policy are coherent or not. By going trought the AST in two passes (once going down and once going back up to check if types encountered are correct). "
+   > L'étape la plus dure concernant TypeSystem était de comprendre son rôle, voici une decription que j'ai pu fournir du code s'y trouvant (extrait du README.md) :
+   >> " The goal here is to check wether the types used in the user policy are coherent or not. By going trought the AST in two passes (once going down and once going back up to check if types encountered are correct). "
    - J'y ai surtout retrouvé des fichiers ressemblant aux dossiers ATV et ASH (voir 11 Mai).
    - La particularité de TypeSystem est qu'il utilise le code du dossier ATV, ce qui le rend plutôt intéressant et complexe.
 
