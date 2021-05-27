@@ -11,6 +11,7 @@ RAS.
    - J'ai aussi compris le rôle qu'a le fichier `smap.csv` généré lors du parsing du fichier `.phaistos`. Il permet enfaite de lister les information de l'AST sur chaque noeud par rapport au fichier entrant (`deadline.phaistos` par exemple) en donnant les lignes correspondantes. Et de faire le lien avec le fichier de sortie en donnant les lignes correspondantes.
       > Par exemple la ligne suivante du fichier smap.csv : 
       >> 192,varDeclaration,18,18,topLevel,12,12
+      
       > Indique un noeud de l'arbre d'ID 192 de type "déclaration de variable" de la ligne 18 à 18 dans le fichier "deadline.phaistos", c'est une déclaration de haut-niveau (celui du DSL), qui se retrouve de la ligne 12 à 12 dans le fichier C de sortie.
    - J'ai documenté un README.md et réalisé un Makefile comme pour le dossier `TypeSystem`.
  - J'ai modifié légèrement le README.md du dossier `TypeSystem`.
