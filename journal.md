@@ -1,3 +1,50 @@
+
+# Journal du 28 Mai 2021
+
+## Ce qui n'a pas été fait
+
+RAS.
+
+## Ce qui a été fait 
+
+Dear Journal, aujourd'hui la compréhension du code arrive bientôt à sa fin. Voici ce qui a été fait
+
+ - Approfondissement de la compréhension du dossier `Static-Analysis` :
+   - Etude des fichiers et de **leur rôle**, j'ai eu quelque problèmes à comprendre la finalité voulue derrière le code (cela m'a prit beaucoup de temps). Mais avec l'aide de Nicolas j'ai pu saisir les principales intentions du code.
+   - `visitorInternalDsl.ml` contient une liste de fonction qu'on peut aussi nommer API pour l'analyse exercer dans les templates. En effet l'analyse dites **statique** a lieu à froid, c'est à dire sans que le code s'exécute.
+   - les templates comme `script.ml` utilisent donc l'API et procède à des vérifications grace à des "formules logiques" complexes qui permettent de vérifier des états plus poussés du code ... Au dela de la syntaxe, de la grammaire, et de la cohérence de type.
+ - Réécriture de certains fichier README.md.
+
+## Pour la prochaine fois
+
+Assignations de nouvelles tâches :
+
+ - Créer un dossier de test pour les analyses.
+ - Finir de lire et écrire les readme.
+
+---
+
+# Journal du 28 Mai 2021
+
+## Ce qui n'a pas été fait
+
+RAS.
+
+## Ce qui a été fait
+
+ - Réponses aux questions de la veille :
+   1. Une passe (aller-retour) est effectuée par appel à l'exécutable (pas de code indiquant le contraire dans parser.ml (un appel unique à `visitor#accept`)).
+   2. Pré-processing + conventions font que le code généré est plus convenable à lire et permet d'avoir un code qui se rapproche de celui du kernel. Il est à noter que les conventions de code C pour le développement noyau sont disponibles [ici](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/coding-style.rst?h=v5.13-rc3).
+   3. Le nom de ces templates sont utilisés par PhaistOS pour différencier les passes dans l'AST exercées lors de la génération de code C. 
+ - Nettoyage des fichiers générés, README.md et Makefile du dossier `Static-Analysis`.
+    > Ce dossier à pour but d'exercer une analyse statique, c'est à dire à froid, avant que le code s'exécute, pour cela le visiteur parcours les noeuds du fichier .phaistos fourni et pour chaque noeud il fait des choses (pas encore très clair ... Je dois approfondir le code pour cela).
+
+## Pour la prochaine fois
+
+Continuer de comprendre comment fonctionne la partie du code du dossier `Static-Analysis`.
+
+---
+
 # Journal du 27 Mai 2021
 
 ## Ce qui n'a pas été fait
