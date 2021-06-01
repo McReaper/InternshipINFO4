@@ -1,5 +1,25 @@
+# Journal du 01 Juin 2021
 
-# Journal du 28 Mai 2021
+## Ce qui n'a pas été fait
+
+ - Créer un dossier de test pour les analyses
+
+## Ce qui a été fait 
+
+Aujourd'hui a surtout été le dernier jour concerant la compréhension générale du code. Une réécriture quasi-finale des readme a été faite et je vais donc pouvoir demander une validation de la part de Nicolas pour savoir s'il considère juste ce que j'ai écris.
+
+La prochaine étape est de comprendre comment fonctionne les outils de benchmark pour tester les performances du système avec les politiques intégrées, ça me permettra de me replonger dans le fonctionnement du déploiment côté système. 
+
+Il serait aussi bien de créer un dossier de tests pour voir si tout a bien été vérifié et qu'il n'y a pas de failles.
+
+## Pour la prochaine fois
+
+ - Créer un dossier de test.
+ - Commencer à regarder pour les logiciels de benchmark.
+
+---
+
+# Journal du 31 Mai 2021
 
 ## Ce qui n'a pas été fait
 
