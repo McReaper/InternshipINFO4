@@ -9,6 +9,8 @@
  (* -- snip -- *)
  ``` 
 
+J'ai développé un script disponible [ici](../sed.sh) qui va voir dans les templates et enlève ce ghosting.
+
 ## Ce qui n'a pas été fait
 
  - Le dossier des tests unitaires n'a pas été avancé, à cause de changement d'objectifs.
@@ -31,7 +33,7 @@ let import_at node named =
 ```
 Où `node` est un objet de classe `astNode` et `self` une instance de la classe `visitor`. Cette simple fonction utilise les deux classes, déjà entre elles récursivent...
 
-### Difficultés rencontrées :
+### Difficultés rencontrées
 
 Impossible de trouver une manière propre de changer ce qu'à fait Nick, OCaml ne me permet pas de faire ce que je veux pour l'instant ...
 
