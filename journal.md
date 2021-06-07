@@ -9,7 +9,7 @@
  (* -- snip -- *)
  ``` 
 
-J'ai développé un script disponible [ici](../sed.sh) qui va voir dans les templates et enlève ce ghosting.
+J'ai développé un script disponible [ici](sed.sh) qui va voir dans les templates et enlève ce ghosting en modifiant les fichiers sur place.
 
 ## Ce qui n'a pas été fait
 
