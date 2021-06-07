@@ -1,3 +1,51 @@
+# Journal du 02, 03, 04, 07 Juin 2021
+
+ Les objectifs du jour précédent ont été modifiés par mon point de vue actuel concernant PhaistOS, car j'estimais qu'une sorte de mise à niveau du code était nécessaire. D'une part car beaucoup de warnings étaient générés à la compilation, d'autre part car le code de `visitorInternalDsl.ml` s'enchaine très vite et sans commentaire avec certaines fonctions de redéfinitions non-nécessaires qui "*cachent*" le réel code Ocaml présent dans les templates et nuit donc à la compréhension générale du fonctionnement du code. 
+ 
+ Exemple d'une redéfiniton (ou *ghosting*) de fonction : 
+ ```Ocaml
+ (* -- snip -- *)
+ let find f l = List.find_all f l 
+ (* -- snip -- *)
+ ``` 
+
+## Ce qui n'a pas été fait
+
+ - Le dossier des tests unitaires n'a pas été avancé, à cause de changement d'objectifs.
+ - Pareillement, pas encore regardé l'aspect benchmarking de PhaistOS.
+
+## Ce qui a été fait
+
+### Analyse du code
+
+Dans le code actuel d'`ast.ml`, la directive `#include visitorInternalDsl.ml` apparait à de nombreuse reprises, et permet au code d'utiliser le contenu du fichier à chaque fois que la directive est présente au début d'une méthode, sans cela, les fonctions comme `callEach` présentent dans `visitorInternalDsl.ml`, ne seraient pas disponibles pour les templates intégrés dans la classe `visitor` d'`ast.ml`. L'idée qui nous ait donc venu à l'esprit était de se débarasser de cette inclusion qui générait beaucoup d'erreurs (car les fonctions n'étaient pas toute utilisées à chaque `include`), de telle manière que toutes les fonctions se retrouvent dans une API externe que `ast.ml` puisse utiliser à son bon vouloir sans avoir à inclure le fichier plusieurs fois, et donc d'éviter toutes ces erreurs à la compilation.
+
+Concernant le code à ameliorer, nous en sommes venu à conclure au bout d'un moment avec Nicolas que l'entièreté du code contient une dépendance cyclique assez prononcée, et difficile à faire disparaitre. En effet, dans le code actuel, les classes des noeuds de l'AST doivent connaitre la classe du visiteur, et le visiteur doit connaitre les différents types de noeuds. De plus, les fonctions présentes dans `visitorInternalDsl.ml` doivent connaitres les noeuds mais aussi le visiteur. On se retrouve donc dans ce schéma : 
+```
+fonctions <=> noeuds <=> visiteur <=> fonctions
+```
+La seule solution qui est donc possible d'exister pour se débarasser de cette dépendance cyclique s'appelle la récursivité, car ici il est impossible de faire sauter cette dépendance, principalement à cause de la fonction `import_at` d'`visitorInternalDsl.ml` :
+```Ocaml
+let import_at node named =
+    Hashtbl.find (node#accept (self:>visitor)) named (* -- snip -- *)
+```
+Où `node` est un objet de classe `astNode` et `self` une instance de la classe `visitor`. Cette simple fonction utilise les deux classes, déjà entre elles récursivent...
+
+### Difficultés rencontrées :
+
+Impossible de trouver une manière propre de changer ce qu'à fait Nick, OCaml ne me permet pas de faire ce que je veux pour l'instant ...
+
+Explications : Ocaml refuse de faire une déclaration récursives d'expressions (de fonctions) puis de classes. 
+
+ - J'ai donc essayé la déclaration de type de classe `type class v` avant la déclaration des classes en elle-même, pour que les fonctions puissent connaitre les classes même si elles n'existent pas encore. Mais lors des casts de type `self :> v`, Le compilateur refuse et me dit `Self type cannot escape its class`. Ce message d'erreur vient du fait que self peut être étendu dans des sous-classes, on ne peut donc pas fixer à l'avance son type (**Je ne savais pas, merci Ocaml de me le dire après des heures de bataille avec les erreurs de syntaxe du langage** 😩).
+ - Du coup la seule option viable et qui me reste à essayer c'est la notion de modules récursifs, mais cela risque de changer tout le code, et pour la génération automatique de ce dernier ça peut être pénible de devoir revenir dessus. SI cette dernière solution ne porte pas ses fruits je ne sais pas trop quoi essayé d'autre, le langage ne propose pas grand chose pour se débarasser des dépendances cyclique de ce style.
+
+## Pour la prochaine fois
+
+Continuer et essayer les modules récursifs, si cela ne fonctionne pas je passerai à autre chose en essayant de cacher un maximum les warnings générés.
+
+---
+
 # Journal du 01 Juin 2021
 
 ## Ce qui n'a pas été fait
