@@ -20,7 +20,7 @@ var.member[0]
 (var.member)[0]
 var[0]
 ```
-Cependant notre grammaire n'admet pas `(var.member)[0]` sauf si je me trompe. Cependant, notre grammaire admet `!var[0]` ... **Sic itur ad astra**.
+Cependant notre grammaire n'admet pas des choses simples comme `(var.member)[0]`, mais sait admettre `!var[0]` ... **Sic itur ad astra**.
 
 Je verrai toutes ces choses avec Nicolas demain.
 
