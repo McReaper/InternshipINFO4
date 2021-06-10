@@ -6,6 +6,7 @@ do
   then
     echo "Processing $f file...";
     sed 's/imap /List.iter /g' $f -i; 
+    sed 's/for_each /List.iter /g' $f -i; 
     sed 's/mapi /List.mapi /g' $f -i; 
     sed 's/map /List.map /g' $f -i; 
     sed 's/filter /List.filter /g' $f -i; 

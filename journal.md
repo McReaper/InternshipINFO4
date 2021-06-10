@@ -1,3 +1,13 @@
+# Journal du 08 & 09 Juin 2021
+
+Hier et aujourd'hui j'ai accentué mon effort sur la restructuration du code Ocaml du dossier `Static-Anlysis` en utilisant les *recursive modules*. Ce qui m'a permit d'utiliser le fichier qui posait problème une et une seule fois à travers un module. Après avoir restructuré le code, je suis parti à la chasse aux erreurs, et j'ai réussi à toute les éliminées. Cela ne signifie pas pour autant que le code est correct, car j'ai du corrigé des erreurs de sémantique dans le code, autrement dit le code écrit ne pouvait pas bien fonctionné en l'état actuel avant mon passage (certaines lignes ne pouvaient jamais être exécutées).
+
+Cependant, menhir (bibliothèque utilisée pour la grammaire du langage du parser) m'indique qu'il existe des conflits de type [shift/reduce](https://www.gnu.org/software/bison/manual/html_node/Shift_002fReduce.html) dans la grammaire. 
+
+J'ai bien peur que ces conflits de grammaire associés au code non-réellement testé pose problème par la suite dans PhaistOS. Même si ici il ne s'agit que d'un dossier d'analyse du code, cette grammaire est utilisée de manière générale comme étant celle du DLS. Donc régler les conflits dans cette dernière pourra sauver des potentiels problèmes par la suite.
+
+La difficulté réside maintenant dans la résolution des erreurs de la grammaire, tout en s'assurant que le code associé reste valide pour des tests futurs (car oui le code phaistos parsé par la grammaire génère du code Ocaml).
+
 # Journal du 02, 03, 04, 07 Juin 2021
 
  Les objectifs du jour précédent ont été modifiés par mon point de vue actuel concernant PhaistOS, car j'estimais qu'une sorte de mise à niveau du code était nécessaire. D'une part car beaucoup de warnings étaient générés à la compilation, d'autre part car le code de `visitorInternalDsl.ml` s'enchaine très vite et sans commentaire avec certaines fonctions de redéfinitions non-nécessaires qui "*cachent*" le réel code Ocaml présent dans les templates et nuit donc à la compréhension générale du fonctionnement du code. 
