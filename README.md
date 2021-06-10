@@ -14,7 +14,7 @@ Pr. Nicolas PALIX
 
 ## Professeur référent
 
-Pr. Vincent Danjean
+Pr. Vincent DANJEAN
 
 ---
 

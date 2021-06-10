@@ -1,3 +1,29 @@
+# Journal du 10 Juin 2021
+
+La chasse au debug touche bientôt à sa fin, mais je bloque sur conflit de type shift/reduce plutôt coriace.
+
+__Explications :__
+
+Conflit sur les expressions avec le crochet ouvrant, deux exemples de cas de conflits :
+```
+NOT expr [ expr ]
+expr AND expr [ expr ]
+```
+__Pourquoi ?__
+
+En faite la grammaire est ambiguë (surement au niveau d'`indexOp`) car une expression peut être composée d'expressions ... Du coup il ne sait pas à quelle expression s'applique les crochets (voir le fameux problème du "*dangling else*") ...
+
+Une idée serait de réécrire la grammaire pour lui dire que les crochets sont toujours attachés à la dernière variable lue ... Mais même cela est faux car les phrases suivantes peuvent être correctes en C par exemple :
+```
+var.get_tab()[0]
+var.member[0]
+(var.member)[0]
+var[0]
+```
+Cependant notre grammaire n'admet pas `(var.member)[0]` sauf si je me trompe. Cependant, notre grammaire admet `!var[0]` ... **Sic itur ad astra**.
+
+Je verrai toutes ces choses avec Nicolas demain.
+
 # Journal du 08 & 09 Juin 2021
 
 Hier et aujourd'hui j'ai accentué mon effort sur la restructuration du code Ocaml du dossier `Static-Anlysis` en utilisant les *recursive modules*. Ce qui m'a permit d'utiliser le fichier qui posait problème une et une seule fois à travers un module. Après avoir restructuré le code, je suis parti à la chasse aux erreurs, et j'ai réussi à toute les éliminées. Cela ne signifie pas pour autant que le code est correct, car j'ai du corrigé des erreurs de sémantique dans le code, autrement dit le code écrit ne pouvait pas bien fonctionné en l'état actuel avant mon passage (certaines lignes ne pouvaient jamais être exécutées).
