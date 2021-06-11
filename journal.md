@@ -1,3 +1,15 @@
+# Journal du 11 Juin 2021
+
+Aujourd'hui la grammaire a été fixée, elle est désormais fonctionnelle (plus de conflits de type shift/reduce) ! J'ai continué de regardé si d'autres incohérences existaient et nous nous sommes rendu compte avec Nicolas que la syntax et la grammaire comportaient des éléments inutilisés à l'heure actuel, comme le `use` du DSL qui n'apparait dans aucun des exemples fournis.
+
+Plus tard il faudra donc que je comprenne (peut être en demandant à Nick) pourquoi ce token existe, quel est/était son utilité (car d'après les commits c'est quelque chose qui est présent depuis le début), voir si on peut le retirer du langage. Puis voir si il n'y a pas d'autre token dans le même cas (peu probable d'apès Nicolas).
+
+Deplus, le rôle de la variable `sfx` reste partiellement flou, même si j'approche de plus en plus de quelque chose de concret... Il faudra que je continue de regarder.
+
+Nous avons aussi parler de l'aspect benchmarking du stage avec Nicolas, il faudra bien prévoir 1 mois de benchmark (durant juillet), précédé d'une semaine de mise en place des outils. Donc au final j'ai encore 1 semaine pour me pré-occupé du code avant de passer aux tests. L'idée étant de detecter à l'avance en attendant la prochaine étape les potentielles erreurs de programmation qui pourrait empecher un bon déroulement des benchmarks. 
+
+L'idéal aurait été de s'assurer de la robustesse du code avant d'effectuer les tests de benchmark, mais le temps fait que c'est compliqué. 
+
 # Journal du 10 Juin 2021
 
 La chasse au debug touche bientôt à sa fin, mais je bloque sur conflit de type shift/reduce plutôt coriace.
