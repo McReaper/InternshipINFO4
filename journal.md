@@ -1,3 +1,20 @@
+# Journal du 18 Juin 2021
+
+Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements ont du créer un bug. J'ai repéré ce bug, mais je ne comprends pas pourquoi il intervient. Voici la situation actuelle :
+
+ - Il fait chaud.
+ - Les modifications dans la grammaires "produisent" un bug qui fait que l'assertion des types de l'addition `NOW() + POLICY.fifo_expire[data_dir]` se plante et renvoit une exception sur les types des opérateurs de gauche et droite (alors qu'ils sont tout les deux des entiers).
+ - Je me suis dis que le language définit par la grammaire n'arrive pas à bien interprété l'enchainement de l'appel du membre `fifo_expire` puis de l'appel à l'index `[data_dir]` de ce membre.
+ - Ce qui est étrange c'est que quand on enlève les règles de priorité dans la grammaire (et donc que les problèmes shift/reduce disparaissent), le bug n'apparait plus. J'ai donc revisté mes changements mais je n'arrive pas à trouver là où ça pourrait être incohérent...
+ - J'ai essayé d'utilisé **ocamldebug** mais ce debuggueur est juste horrible à utiliser. Il n'est même pas capable d'afficher le contenu d'un objet sans printer personnalisé... Je l'ai donc laissé de côté.
+ - La comparaison de type (`typeAssert`) se fait avec l'opérateur `<>` qui signifie la différence structurel.
+ - Le membre de gauche `NOW()` semble bien être parsé comme étant de type `int_std` cependant `POLICY.fifo_expire[data_dir]` ne semble pas l'être, où du moins sa structure doit différée... Même si de ce que j'en ai vu ce n'était pas le cas (c'est pour ça que je suis allé sur debuggeur).
+
+ - J'ai aussi supprimé le statement "*use*" du DSL qui n'était utilisé nul part.
+ - J'ai aussi supprimé la variable "`sfx`" de la génération des templates car la variable n'était utilisait qu'à un seul endroit dans chaque dossier (`forEach_at`), et sans nécessité car les appels à `forEach_at` se fait dans les *embedEvalTemplate* de la forme `[$ forEach ... $]`, qui méttaient toujours `sfx` à *false*.
+
+ La semaine prochaine je regarderai comment commencer les benchmark et j'essairai de finir le debugging sur ma branche non-stable.
+
 # Journal du 11 Juin 2021
 
 Aujourd'hui la grammaire a été fixée, elle est désormais fonctionnelle (plus de conflits de type shift/reduce) ! J'ai continué de regardé si d'autres incohérences existaient et nous nous sommes rendu compte avec Nicolas que la syntax et la grammaire comportaient des éléments inutilisés à l'heure actuel, comme le `use` du DSL qui n'apparait dans aucun des exemples fournis.
