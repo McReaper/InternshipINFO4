@@ -6,11 +6,11 @@ NOW() + POLICY.fifo_expire[data_dir]
 ```
 Enfaite après investigation, j'ai compris que le parser avait fait l'arbre de parse suivant :
 ```
-                              ______indexOp_____________________________
-                             /              \             \             \
-                ___________member_______   LEFT_BRACK([)  id(data_dir)  RIGHT_BRACK(])
+                              ._____indexOp_.____________._____________.
+                             /               \            \             \
+                .__________member______.   LEFT_BRACK([)  id(data_dir)  RIGHT_BRACK(])
                /              |         \
-    _______artihmeticOp_____  DOT(.)    id(fifo_expire)
+    .______artihmeticOp____.  DOT(.)    id(fifo_expire)
    /                |       \
 funcCall(NOW())   PLUS(+)  id(POLICY)
 ```
@@ -18,11 +18,11 @@ L'erreur portait donc sur la construction de l'arbre car une addition n'est pas 
 
 Pour régler ce problème et obtenir l'arbre suivant, j'ai simplement fait passer la priorité de la règle `DOT` (celle du membre), **accompagnée de celle des crochets** en dessous de celles des opérations :
 ```
-            ___artihmeticOp___
+            .__artihmeticOp__.
            /          |       \
-   funcCall(NOW())  PLUS(+) _indexOp_______________________
+   funcCall(NOW())  PLUS(+) ._indexOp_______._____________.
                            /    |            \             \
-                _____member__  LEFT_BRACK([)  id(data_dir) RIGHT_BRACK(])
+                .____member_.  LEFT_BRACK([)  id(data_dir) RIGHT_BRACK(])
                /       |     \
          id(POLICY)   DOT(.)  id(fifo_expire)
 ```
