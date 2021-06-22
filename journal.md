@@ -6,11 +6,11 @@ NOW() + POLICY.fifo_expire[data_dir]
 ```
 Enfaite après investigation, j'ai compris que le parser avait fait l'arbre de parse suivant :
 ```
-                    ______indexOp______
-                   /                   \
-                __member________   id(data_dir)
-               /                \
-    _______artihmeticOp_____  id(fifo_expire)
+                              ______indexOp_____________________________
+                             /              \             \             \
+                ___________member_______   LEFT_BRACK([)  id(data_dir)  RIGHT_BRACK(])
+               /              |         \
+    _______artihmeticOp_____  DOT(.)    id(fifo_expire)
    /                |       \
 funcCall(NOW())   PLUS(+)  id(POLICY)
 ```
@@ -20,11 +20,11 @@ Pour régler ce problème et obtenir l'arbre suivant, j'ai simplement fait passe
 ```
             ___artihmeticOp___
            /          |       \
-   funcCall(NOW())  PLUS(+)  indexOp  
-                             /     \
-                    __ member_      id(data_dir)
-                   /          \
-               id(POLICY)   id(fifo_expire)
+   funcCall(NOW())  PLUS(+) _indexOp_______________________
+                           /    |            \             \
+                _____member__  LEFT_BRACK([)  id(data_dir) RIGHT_BRACK(])
+               /       |     \
+         id(POLICY)   DOT(.)  id(fifo_expire)
 ```
 Ainsi les opérations arithmétiques attendent l'évaluation des structures et des index avant de s'évaluer.
 
