@@ -1,3 +1,35 @@
+# Journal du 21 Juin 2021
+
+J'ai réussi à fixer le bug qui résidait dans la grammaire. Les tests ne passaient pas car l'appel à l'addition suivante provoquait une erreur de typage :
+```
+NOW() + POLICY.fifo_expire[data_dir]
+```
+Enfaite après investigation, j'ai compris que le parser avait fait l'arbre de parse suivant :
+```
+                    ______indexOp______
+                   /                   \
+                __member________   id(data_dir)
+               /                \
+    _______artihmeticOp_____  id(fifo_expire)
+   /                |       \
+funcCall(NOW())   PLUS(+)  id(POLICY)
+```
+L'erreur portait donc sur la construction de l'arbre car une addition n'est pas une structure (et donc ne possède pas de membre).
+
+Pour régler ce problème et obtenir l'arbre suivant, j'ai simplement fait passer la priorité de la règle `DOT` (celle du membre), **accompagnée de celle des crochets** en dessous de celles des opérations :
+```
+            ___artihmeticOp___
+           /          |       \
+   funcCall(NOW())  PLUS(+)  indexOp  
+                             /     \
+                    __ member_      id(data_dir)
+                   /          \
+               id(POLICY)   id(fifo_expire)
+```
+Ainsi les opérations arithmétiques attendent l'évaluation des structures et des index avant de s'évaluer.
+
+La difficulté ici résidait dans la detection et la compréhension du problème... Mon cerveau partait en vrille à cause de **la chaleur** et j'ai pris trop de temps pour régler une chose si "simple" de compléxité.
+
 # Journal du 18 Juin 2021
 
 Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements ont du créer un bug. J'ai repéré ce bug, mais je ne comprends pas pourquoi il intervient. Voici la situation actuelle :
@@ -5,7 +37,7 @@ Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements
  - Il fait chaud.
  - Les modifications dans la grammaires "produisent" un bug qui fait que l'assertion des types de l'addition `NOW() + POLICY.fifo_expire[data_dir]` se plante et renvoit une exception sur les types des opérateurs de gauche et droite (alors qu'ils sont tout les deux des entiers).
  - Je me suis dis que le language définit par la grammaire n'arrive pas à bien interprété l'enchainement de l'appel du membre `fifo_expire` puis de l'appel à l'index `[data_dir]` de ce membre.
- - Ce qui est étrange c'est que quand on enlève les règles de priorité dans la grammaire (et donc que les problèmes shift/reduce disparaissent), le bug n'apparait plus. J'ai donc revisté mes changements mais je n'arrive pas à trouver là où ça pourrait être incohérent...
+ - Ce qui est étrange c'est que quand on enlève les règles de priorité dans la grammaire (et donc que les problèmes shift/reduce réapparaissent), le bug n'apparait plus. J'ai donc revisté mes changements mais je n'arrive pas à trouver là où ça pourrait être incohérent...
  - J'ai essayé d'utilisé **ocamldebug** mais ce debuggueur est juste horrible à utiliser. Il n'est même pas capable d'afficher le contenu d'un objet sans printer personnalisé... Je l'ai donc laissé de côté.
  - La comparaison de type (`typeAssert`) se fait avec l'opérateur `<>` qui signifie la différence structurel.
  - Le membre de gauche `NOW()` semble bien être parsé comme étant de type `int_std` cependant `POLICY.fifo_expire[data_dir]` ne semble pas l'être, où du moins sa structure doit différée... Même si de ce que j'en ai vu ce n'était pas le cas (c'est pour ça que je suis allé sur debuggeur).
