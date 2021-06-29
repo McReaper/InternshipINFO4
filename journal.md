@@ -1,3 +1,17 @@
+# Journal du 28 Juin 2021
+
+Après quelques étapes de débuggage j'ai arrêté la pour me concentrer sur les tests de performances de PhaistOS.
+
+J'ai commencé à me familiariser avec l'environement Grid'5000 et l'image de la VM laissé par Nick. J'ai pu donc lancer PhaistOS avec cette image et lancé les deux trois scripts qu'il avait laissé pour voir de quoi il en retournait. il s'avère que Qemu (faisant tourner l'image) n'est pas très ergonomique (clavier anglais avec pavé numérique désynchronisé, et très petit terminal sans barre de défilement), mais j'imagine que c'est réglable, je regarderai. 
+
+Concernant Grid'5000, la mise en place des images et des tests est plutôt simple, rien de compliqué une fois qu'on sait comment faire.
+
+Voici la liste des logiciels de benchmarks que j'ai testé jusqu'à présent :
+ - `sysbench` : un logiciel de benchmark multi-threadé pour les bases de données (test les entrées sorties sur fichier, dans une base de donnée, et même le CPU)
+ - `FIO` : logiciel de benchmark créé par Linux pour tester les performances d'entrées sorties en fonction de l'ordonnanceur actif (c'est celui que Nick a repéré et qui va surement beaucoup m'aidé au début).
+ - `nas` : *à découvrir*
+ - `parsec` : *à découvrir*
+
 # Journal du 21 Juin 2021
 
 J'ai réussi à fixer le bug qui résidait dans la grammaire. Les tests ne passaient pas car l'appel à l'addition suivante provoquait une erreur de typage :
