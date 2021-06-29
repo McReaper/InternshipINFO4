@@ -1,4 +1,4 @@
-# Journal du 28 Juin 2021
+# Journal de la semaine du 28 Juin 2021
 
 Après quelques étapes de débuggage j'ai arrêté la pour me concentrer sur les tests de performances de PhaistOS.
 
@@ -12,7 +12,7 @@ Voici la liste des logiciels de benchmarks que j'ai testé jusqu'à présent :
  - `nas` : *à découvrir*
  - `parsec` : *à découvrir*
 
-# Journal du 21 Juin 2021
+# Journal de la semaine du 21 Juin 2021
 
 J'ai réussi à fixer le bug qui résidait dans la grammaire. Les tests ne passaient pas car l'appel à l'addition suivante provoquait une erreur de typage :
 ```
@@ -44,7 +44,7 @@ Ainsi les opérations arithmétiques attendent l'évaluation des structures et d
 
 La difficulté ici résidait dans la detection et la compréhension du problème... Mon cerveau partait en vrille à cause de **la chaleur** et j'ai pris trop de temps pour régler une chose si "simple" de compléxité.
 
-# Journal du 18 Juin 2021
+# Journal de la semaine du 18 Juin 2021
 
 Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements ont du créer un bug. J'ai repéré ce bug, mais je ne comprends pas pourquoi il intervient. Voici la situation actuelle :
 
