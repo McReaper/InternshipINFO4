@@ -1,3 +1,13 @@
+# Journal du 29 Juin 2021
+
+Aujourd'hui j'ai fais des recherches sur Qemu et j'ai cherché à comprendre ce que faisait les scripts d'installation qu'avait laissé Nick. Avec Nicolas on est en venu à la conclusion que l'image d'1Go actuel n'est pas suffisant si on veut faire des mises à jours sur la Debian.
+
+Ici en l'occurence la Debian était la version 8 (Jessie) installée avec le système de fichier ext2 ne nous convient pas forcément (trop vieille comme configuration système), peut être que Nick a fait c'est choix intentionellement, je regarderai.
+
+Nicolas m'a expliqué bcp de choses sur Qemu.
+
+Demain je génèrerai ma propre image Qemu, et j'essairai de reprendre le mode d'installation des modules d'Ipanema pour PhaistOS (modules à part, en local et liés par qemu dans le noyau chargé) => voir le Makefile d'Ipanema.
+
 # Journal de la semaine du 28 Juin 2021
 
 Après quelques étapes de débuggage j'ai arrêté la pour me concentrer sur les tests de performances de PhaistOS.
