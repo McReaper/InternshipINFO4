@@ -12,6 +12,10 @@ J'ai rencontrés des difficultés lors de l'installation, certaines dont je suis
 | - Certains utilitaires sont installés (nas, fio) |  |
 | - L'image de sauvegarde fonctionne, sous ext4, avec 5Go d'espace "disque" |  |
 
+Je dois donc continuer à travailler sur les dernières erreurs et ensuite je pourrai passer à la prochaine étape.
+
+La prochaine étape consiste à ce que les modules phaistos soit compilés localement au code de phaistos et copiés directement dans le kernel grâce à un Makefile (discuter de ça avec Nicolas pour mieux comprendre l'idée, c'est pas encore très clair).
+
 # Journal du 29 Juin 2021
 
 Aujourd'hui j'ai fais des recherches sur Qemu et j'ai cherché à comprendre ce que faisait les scripts d'installation qu'avait laissé Nick. Avec Nicolas on est en venu à la conclusion que l'image d'1Go actuel n'est pas suffisant si on veut faire des mises à jours sur la Debian.
