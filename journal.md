@@ -1,3 +1,17 @@
+# Journal du 2 Juillet 2021
+
+Aujourd'hui et les deux derniers jours je me suis penché sur l'installation et la mise en route d'une VM debian version 10 comme base pour les benchmarks de PhaistOS.
+
+J'ai rencontrés des difficultés lors de l'installation, certaines dont je suis arrivé à bout, d'autre pas. Voici un récapitulatif :
+
+| Ce qui fonctionne | Ce qui ne fonctionne pas |
+| ----------------- | ------------------------ |
+| - La VM se lance sous debian 10 avec le kernel modifié | - accès internet dans la VM ne passe pas (installation dans la virtualization impossible pour l'instant) |
+| - L'utilisateur `erods` a été ajouté aux utilisateurs sudoers du système | - utilisateur erods n'a pas autant de droit que root, bizarre ... (erreur lors du `loadkeys fr` sur les droits) |
+| - Le clavier virtuel peut être passé en *azerty* | - dû au bug internet il me manque les utilitaires de benchmarks suivants : sysbench et parsec... |
+| - Certains utilitaires sont installés (nas, fio) |  |
+| - L'image de sauvegarde fonctionne, sous ext4, avec 5Go d'espace "disque" |  |
+
 # Journal du 29 Juin 2021
 
 Aujourd'hui j'ai fais des recherches sur Qemu et j'ai cherché à comprendre ce que faisait les scripts d'installation qu'avait laissé Nick. Avec Nicolas on est en venu à la conclusion que l'image d'1Go actuel n'est pas suffisant si on veut faire des mises à jours sur la Debian.
