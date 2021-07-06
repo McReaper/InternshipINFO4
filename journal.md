@@ -1,3 +1,11 @@
+# Journal du 6 Juillet 2021
+
+> En ce Lundi 6 Juillet, l'armistice avec qemu a été signée.
+
+La VM démarre à travers le terminal (plus de restriction graphique), les installations se font très bien dans la VM (problème de réseaux fixés (c'est ce qui m'avait pris le plus de temps à fixer à cause de la VM)). J'ai même pu gérer les droits utilisateurs comme il le fallait pour qu'*erods* puissent avoir accès à la commande `loadkeys`.
+
+La prochaine étape de demain est de finir les installations des utilitaires de benchmarks (il manque `parsec` de mémoire).
+
 # Journal du 2 Juillet 2021
 
 Aujourd'hui et les deux derniers jours je me suis penché sur l'installation et la mise en route d'une VM debian version 10 comme base pour les benchmarks de PhaistOS.
