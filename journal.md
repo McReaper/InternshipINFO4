@@ -1,8 +1,8 @@
-# Journal du 6 Juillet 2021
+# Journal du 5 Juillet 2021
 
-> En ce Lundi 6 Juillet, l'armistice avec qemu a été signée.
+> En ce Lundi 5 Juillet, l'armistice avec qemu a été signée.
 
-La VM démarre à travers le terminal (plus de restriction graphique), les installations se font très bien dans la VM (problème de réseaux fixés (c'est ce qui m'avait pris le plus de temps à fixer à cause de la VM)). J'ai même pu gérer les droits utilisateurs comme il le fallait pour qu'*erods* puissent avoir accès à la commande `loadkeys`.
+La VM démarre à travers le terminal (plus de restriction graphique), les installations se font très bien dans la VM (problème de réseaux fixés (c'est ce qui m'avait pris le plus de temps à fixer à cause de la VM qui fonctionnait mal sur les communications réseaux avec l'hôte)). J'ai même pu gérer les droits utilisateurs comme il le fallait pour qu'*erods* puissent avoir accès à la commande `loadkeys`.
 
 La prochaine étape de demain est de finir les installations des utilitaires de benchmarks (il manque `parsec` de mémoire).
 
