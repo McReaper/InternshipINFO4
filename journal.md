@@ -1,3 +1,26 @@
+# Journal du 8 Juillet 2021
+
+Deuxième armistice avec qemu, j'avais un problème de corruption du système de fichiers dans la VM, il s'avèrait que je n'avais pas partitionné l'image (en même temps je pensais que le script de base était correct, mais pas du tout). Ducoup voici le script final :
+```shell
+IMG=qemu-image.img
+DIR=mount-point.dir
+qemu-img create $IMG 5g
+losetup -fP $IMG
+MNT=`losetup -a | grep $IMG | tail -n 1 | cut -d ":" -f 1`
+parted $MNT -s mklabel msdos mkpart primary ext4 1MiB 100%
+sleep 1
+mkfs.ext4 $MNT\p1
+mkdir $DIR
+sudo mount -t ext4 $MNT\p1 $DIR
+sudo debootstrap --arch amd64 buster $DIR 
+chroot $DIR /bin/bash
+```
+Ce script permet de créer un fichier représentant un disque dur de 5Go, de le considérer tel quel avec `losetup`, je récupère le nom du fichier *loop* et je le partitionne avec la table de système de fichier *msdos*, comprenant 1 partition seulement, en **ext4**. Je monte ensuite la partition dans un dossier et j'installe debian 10 (version buster) dessus.
+
+Merci à Nicolas pour m'avoir bien aidé à comprendre.
+
+Je vais enfin pouvoir commencer mes benchmarks demain.
+
 # Journal du 5 Juillet 2021
 
 > En ce Lundi 5 Juillet, l'armistice avec qemu a été signée.
