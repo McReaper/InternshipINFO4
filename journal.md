@@ -1,3 +1,33 @@
+# Journal du 13 Juillet 2021
+
+Aujourd'hui j'ai commencé à rediger le module Kernel PhaistOS ainsi que son Makefile, c'est en cours de développement ...
+
+Après-demain (14 Juillet férié) j'effectuerai mes premiers tests sur l'image Grid5000 que j'entretiens.
+
+J'ai aussi contacter une des membres du projet Ipanema pour lui demander si je pouvais avoir accès à ses scripts de benchmarks Phoronix pour la suite du mois de Juillet.
+
+# Journal du 12 Juillet 2021
+
+Discussion avec Nicolas quand à l'implémentation de PhaistOS sous forme de module & discussion du plan du rapport.
+
+Aujourd'hui nous avons discuter de l'implémentation que devait avoir PhaistOS dans Linux, car j'ai découvert que certains scheduler, comme Kyber, sont en faite des modules, qui peuvent être chargé à la demande, à chaud dans le système, ça éviterait de recompiler tout le noyau, et ça rendrait la chose beaucoup plus maléable (une compilation PhaistOS puis une compilation Kernel, et on se retrouve avec une nouvelle politique d'E/S dans le système). Je vais devoir réécrire la partie du code C pour qu'elle puisse être contenu dans un seul fichier que le Kernel puisse le compiler et le charger. Pour cela je vais aussi devoir écrire un Makefile adapté et surement réécrire le code du dossier `Parser/` de PhaistOS pour qu'il puisse générer le bon code par la suite.
+
+Nous avons aussi beaucoup discuter du stage et du contenu du rapport, le plan ressemble à quelque chose de concret, il faudra juste se concentrer sur la première partie et faire attention à rester clair, précis, et ne pas hésiter à bien expliquer les concepts, pour ne pas avoir à le refaire dans la suite du rapport. Je posterai sur le GitHub mon plan dans la semaine.
+
+# Journal du 9 Juillet 2021
+
+Hier j'ai pu discuter avec Nicolas des différentes tâches restantes à réaliser, en voici la liste :
+
+ - Faire un plan du rapport.
+ - Revoir l'install de PhaistOS côté Kernel (voir si possible sous forme de module).
+ - Finir les benchmarks rapidement (finir le point précédent d'abord).
+ - Participer à la publication scientifique de PhaistOS.
+ - __Bonus :__ Changer la structure d'implémentation de PhaistOS, le fait que le côté utilisateur final passe par des scripts plutôt qu'un programme en OCaml n'est pas idéal.
+
+J'ai donc aujourd'hui produit une ébauche de plan, installer les outils de benchmark phoronix (conseillé par l'équipe Ipanema) et FIO (utilisé par Nick) pour les benchmarks futurs, maintenant je dois (en attendant les retours de Nicolas sur le plan) revoir l'installation de PhaistOS dans le kernel, en essayant de le faire à travers les modules. (peut etre créer un module par politique).
+
+---
+
 # Journal du 8 Juillet 2021
 
 Deuxième armistice avec qemu, j'avais un problème de corruption du système de fichiers dans la VM, il s'avèrait que je n'avais pas partitionné l'image (en même temps je pensais que le script de base était correct, mais pas du tout). Ducoup voici le script final :
@@ -21,6 +51,8 @@ Merci à Nicolas pour m'avoir bien aidé à comprendre.
 
 Je vais enfin pouvoir commencer mes benchmarks demain.
 
+---
+
 # Journal du 5 Juillet 2021
 
 > En ce Lundi 5 Juillet, l'armistice avec qemu a été signée.
@@ -28,6 +60,8 @@ Je vais enfin pouvoir commencer mes benchmarks demain.
 La VM démarre à travers le terminal (plus de restriction graphique), les installations se font très bien dans la VM (problème de réseaux fixés (c'est ce qui m'avait pris le plus de temps à fixer à cause de la VM qui fonctionnait mal sur les communications réseaux avec l'hôte)). J'ai même pu gérer les droits utilisateurs comme il le fallait pour qu'*erods* puissent avoir accès à la commande `loadkeys`.
 
 La prochaine étape de demain est de finir les installations des utilitaires de benchmarks (il manque `parsec` de mémoire).
+
+---
 
 # Journal du 2 Juillet 2021
 
@@ -47,6 +81,8 @@ Je dois donc continuer à travailler sur les dernières erreurs et ensuite je po
 
 La prochaine étape consiste à ce que les modules phaistos soit compilés localement au code de phaistos et copiés directement dans le kernel grâce à un Makefile (discuter de ça avec Nicolas pour mieux comprendre l'idée, c'est pas encore très clair).
 
+---
+
 # Journal du 29 Juin 2021
 
 Aujourd'hui j'ai fais des recherches sur Qemu et j'ai cherché à comprendre ce que faisait les scripts d'installation qu'avait laissé Nick. Avec Nicolas on est en venu à la conclusion que l'image d'1Go actuel n'est pas suffisant si on veut faire des mises à jours sur la Debian.
@@ -56,6 +92,8 @@ Ici en l'occurence la Debian était la version 8 (Jessie) installée avec le sys
 Nicolas m'a expliqué bcp de choses sur Qemu.
 
 Demain je génèrerai ma propre image Qemu, et j'essairai de reprendre le mode d'installation des modules d'Ipanema pour PhaistOS (modules à part, en local et liés par qemu dans le noyau chargé) => voir le Makefile d'Ipanema.
+
+---
 
 # Journal de la semaine du 28 Juin 2021
 
@@ -70,6 +108,8 @@ Voici la liste des logiciels de benchmarks que j'ai testé jusqu'à présent :
  - `FIO` : logiciel de benchmark créé par Linux pour tester les performances d'entrées sorties en fonction de l'ordonnanceur actif (c'est celui que Nick a repéré et qui va surement beaucoup m'aidé au début).
  - `nas` : *à découvrir*
  - `parsec` : *à découvrir*
+
+---
 
 # Journal de la semaine du 21 Juin 2021
 
@@ -103,6 +143,8 @@ Ainsi les opérations arithmétiques attendent l'évaluation des structures et d
 
 La difficulté ici résidait dans la detection et la compréhension du problème... Mon cerveau partait en vrille à cause de **la chaleur** et j'ai pris trop de temps pour régler une chose si "simple" de compléxité.
 
+---
+
 # Journal de la semaine du 18 Juin 2021
 
 Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements ont du créer un bug. J'ai repéré ce bug, mais je ne comprends pas pourquoi il intervient. Voici la situation actuelle :
@@ -120,6 +162,8 @@ Cette semaine j'ai essayé de débuggué le code un maximum mais mes changements
 
  La semaine prochaine je regarderai comment commencer les benchmark et j'essairai de finir le debugging sur ma branche non-stable.
 
+---
+
 # Journal du 11 Juin 2021
 
 Aujourd'hui la grammaire a été fixée, elle est désormais fonctionnelle (plus de conflits de type shift/reduce) ! J'ai continué de regardé si d'autres incohérences existaient et nous nous sommes rendu compte avec Nicolas que la syntax et la grammaire comportaient des éléments inutilisés à l'heure actuel, comme le `use` du DSL qui n'apparait dans aucun des exemples fournis.
@@ -131,6 +175,8 @@ Deplus, le rôle de la variable `sfx` reste partiellement flou, même si j'appro
 Nous avons aussi parler de l'aspect benchmarking du stage avec Nicolas, il faudra bien prévoir 1 mois de benchmark (durant juillet), précédé d'une semaine de mise en place des outils. Donc au final j'ai encore 1 semaine pour me pré-occupé du code avant de passer aux tests. L'idée étant de detecter à l'avance en attendant la prochaine étape les potentielles erreurs de programmation qui pourrait empecher un bon déroulement des benchmarks. 
 
 L'idéal aurait été de s'assurer de la robustesse du code avant d'effectuer les tests de benchmark, mais le temps fait que c'est compliqué. 
+
+---
 
 # Journal du 10 Juin 2021
 
@@ -158,6 +204,8 @@ Cependant notre grammaire n'admet pas des choses simples comme `(var.member)[0]`
 
 Je verrai toutes ces choses avec Nicolas demain.
 
+---
+
 # Journal du 08 & 09 Juin 2021
 
 Hier et aujourd'hui j'ai accentué mon effort sur la restructuration du code Ocaml du dossier `Static-Anlysis` en utilisant les *recursive modules*. Ce qui m'a permit d'utiliser le fichier qui posait problème une et une seule fois à travers un module. Après avoir restructuré le code, je suis parti à la chasse aux erreurs, et j'ai réussi à toute les éliminées. Cela ne signifie pas pour autant que le code est correct, car j'ai du corrigé des erreurs de sémantique dans le code, autrement dit le code écrit ne pouvait pas bien fonctionné en l'état actuel avant mon passage (certaines lignes ne pouvaient jamais être exécutées).
@@ -167,6 +215,8 @@ Cependant, menhir (bibliothèque utilisée pour la grammaire du langage du parse
 J'ai bien peur que ces conflits de grammaire associés au code non-réellement testé pose problème par la suite dans PhaistOS. Même si ici il ne s'agit que d'un dossier d'analyse du code, cette grammaire est utilisée de manière générale comme étant celle du DLS. Donc régler les conflits dans cette dernière pourra sauver des potentiels problèmes par la suite.
 
 La difficulté réside maintenant dans la résolution des erreurs de la grammaire, tout en s'assurant que le code associé reste valide pour des tests futurs (car oui le code phaistos parsé par la grammaire génère du code Ocaml).
+
+---
 
 # Journal du 02, 03, 04, 07 Juin 2021
 
