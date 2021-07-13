@@ -4,7 +4,7 @@ Aujourd'hui j'ai commencé à rediger le module Kernel PhaistOS ainsi que son Ma
 
 Après-demain (14 Juillet férié) j'effectuerai mes premiers tests sur l'image Grid5000 que j'entretiens.
 
-J'ai aussi contacter une des membres du projet Ipanema pour lui demander si je pouvais avoir accès à ses scripts de benchmarks Phoronix pour la suite du mois de Juillet.
+J'ai aussi contacté une des membres du projet Ipanema pour lui demander si je pouvais avoir accès à ses scripts de benchmarks Phoronix pour la suite du mois de Juillet.
 
 # Journal du 12 Juillet 2021
 
