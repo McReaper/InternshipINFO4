@@ -1,3 +1,25 @@
+# Journal de la semaine du 19 Juillet 2021
+
+Le script d'installation de la VM Qemu fonctionne a merveille, et j'ai même réussi à installer PhaistOS en tant que module Linux (venant donc s'ajouter aux ordonnanceurs d'entrée/sortie du système). L'intégration de PhaistOS dans le noyau ne requiert donc aucune modifications du noyau Linux : *mission accomplished*. 
+
+J'ai eu pas mal de pépins avec Qemu, notamment la mémoire RAM de la VM qui était fixée à 100Mo par défaut. Avant que je me rende compte du problème j'avais le `oom_killer` qui était appelé lors des installations dans la VM (je ne savais pas que OOM voulait dire Out Of Memory, pour moi OOm c'est *Out Of Mana*, déformation de joueur quotidien de MMORPG ^^). Ducoup après m'en être rendu compte j'ai regardé la RAM disponible sur les machines Grid5000 : `129Go`, j'avais donc de la marge, j'ai démarré avec 4Go de RAM au lieu de 100Mo.
+
+Après avoir réussi à implémenter le code généré PhaistOS dans le noyau en tant que module j'ai discuté avec Nicolas de la génération du code. J'ai donc modifié les templates du parser qui s'occupait de la génération de code C pour avoir une génération uniforme en un seul appel qui génère directement le code C du module dans `Output-Modules`.
+
+En début de semaine nous avons aussi discuté du rapport et parlé de la soutenance de stage. Le plan du rapport est encore en phase de dévellopement, je pense le finir vendredi ou dans le weekend. Je commencerai le rapport la semaine prochaine.
+
+---
+
+# Journal du 15 Juillet 2021
+
+Les accès au débot Git qui contient les benchmarks sont OK. Je remercie Himadri pour son aide. Je regarderai les scripts plus tard.
+
+Aujourd'hui j'ai pu lancer la première compilation de modules dans la VM grace à l'aide de Nicolas. J'avais des soucis avec Qemu et le système émulé, il m'a aidé à les régler. Le but est de maintenant automatisé toutes les modifications que nous avons faîtes via des scripts pour que le prochain venu puisse avoir sa propre image qemu fonctionnelle dès son arrivée. J'ai commencé ça en fin de soirée, je finirai demain, si jamais je bloque j'irai retourner voir Nicolas en début d'après-midi.
+
+la compilation du module n'avait pas fonctionnée, j'espère que ce n'est rien de grave, je verrai plus en détails par la suite si j'ai le temps demain, j'aimerai ne pas y passer trop de temps si possible.
+
+---
+
 # Journal du 13 Juillet 2021
 
 Aujourd'hui j'ai commencé à rediger le module Kernel PhaistOS ainsi que son Makefile, c'est en cours de développement ...
@@ -6,6 +28,8 @@ Après-demain (14 Juillet férié) j'effectuerai mes premiers tests sur l'image 
 
 J'ai aussi contacté une des membres du projet Ipanema pour lui demander si je pouvais avoir accès à ses scripts de benchmarks Phoronix pour la suite du mois de Juillet.
 
+---
+
 # Journal du 12 Juillet 2021
 
 Discussion avec Nicolas quand à l'implémentation de PhaistOS sous forme de module & discussion du plan du rapport.
@@ -13,6 +37,8 @@ Discussion avec Nicolas quand à l'implémentation de PhaistOS sous forme de mod
 Aujourd'hui nous avons discuter de l'implémentation que devait avoir PhaistOS dans Linux, car j'ai découvert que certains scheduler, comme Kyber, sont en faite des modules, qui peuvent être chargé à la demande, à chaud dans le système, ça éviterait de recompiler tout le noyau, et ça rendrait la chose beaucoup plus maléable (une compilation PhaistOS puis une compilation Kernel, et on se retrouve avec une nouvelle politique d'E/S dans le système). Je vais devoir réécrire la partie du code C pour qu'elle puisse être contenu dans un seul fichier que le Kernel puisse le compiler et le charger. Pour cela je vais aussi devoir écrire un Makefile adapté et surement réécrire le code du dossier `Parser/` de PhaistOS pour qu'il puisse générer le bon code par la suite.
 
 Nous avons aussi beaucoup discuter du stage et du contenu du rapport, le plan ressemble à quelque chose de concret, il faudra juste se concentrer sur la première partie et faire attention à rester clair, précis, et ne pas hésiter à bien expliquer les concepts, pour ne pas avoir à le refaire dans la suite du rapport. Je posterai sur le GitHub mon plan dans la semaine.
+
+---
 
 # Journal du 9 Juillet 2021
 
