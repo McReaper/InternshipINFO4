@@ -4,6 +4,8 @@ Le script d'installation de la VM Qemu fonctionne a merveille, et j'ai même ré
 
 J'ai eu pas mal de pépins avec Qemu, notamment la mémoire RAM de la VM qui était fixée à 100Mo par défaut. Avant que je me rende compte du problème j'avais le `oom_killer` qui était appelé lors des installations dans la VM (je ne savais pas que OOM voulait dire Out Of Memory, pour moi OOm c'est *Out Of Mana*, déformation de joueur quotidien de MMORPG ^^). Ducoup après m'en être rendu compte j'ai regardé la RAM disponible sur les machines Grid5000 : `129Go`, j'avais donc de la marge, j'ai démarré avec 4Go de RAM au lieu de 100Mo.
 
+J'ai aussi rencontré d'autres difficultés qui m'ont ralenties : Erreurs de compilations / Incompatibilité du code avec la version du noyau Linux utilisé / Script d'installation contenant des erreurs à l'install / Grid'5000 refusant de généré une image / etc.
+
 Après avoir réussi à implémenter le code généré PhaistOS dans le noyau en tant que module j'ai discuté avec Nicolas de la génération du code. J'ai donc modifié les templates du parser qui s'occupait de la génération de code C pour avoir une génération uniforme en un seul appel qui génère directement le code C du module dans `Output-Modules`.
 
 En début de semaine nous avons aussi discuté du rapport et parlé de la soutenance de stage. Le plan du rapport est encore en phase de dévellopement, je pense le finir vendredi ou dans le weekend. Je commencerai le rapport la semaine prochaine.
