@@ -1,3 +1,13 @@
+# Journal du 26 Juillet 2021
+
+Le plan du rapport à été fixé, je l'ai envoyé pour validation à Nicolas et Vincent.
+
+J'ai terminé l'implémentation de PhaistOS en tant que Module concernant la génération de code de code C à partir de templates, c'est ce qui m'a prit le plus de temps dans la journée (voir les commits sur gitlab). Enfaite la génération de code à partir de template était assez restreinte et la compilation de code Ocaml ne passait pas à cause d'une erreur non-verbeuse. J'ai donc perdu beaucoup de temps à trouver l'origine de l'erreur dans le compilateur, la corriger, et faire passer la compile des modules générés dans la VM. J'ai pu réécrire le `Makefile` ainsi que le `Readme` du dossier *Parser* du DSL dans l'enchainement.
+
+J'ai un peu regardé les script d'Himadri concernant Phoronix, ainsi que le paper PhaistOS que Nicolas a préparé. Je mis pencherai plus demain. La priorité restant sur les benchmarks et le rapport.
+
+---
+
 # Journal de la semaine du 19 Juillet 2021
 
 Le script d'installation de la VM Qemu fonctionne a merveille, et j'ai même réussi à installer PhaistOS en tant que module Linux (venant donc s'ajouter aux ordonnanceurs d'entrée/sortie du système). L'intégration de PhaistOS dans le noyau ne requiert donc aucune modifications du noyau Linux : *mission accomplished*. 
