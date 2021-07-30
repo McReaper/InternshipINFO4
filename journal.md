@@ -1,3 +1,24 @@
+# Journal du 28 & 29 Juillet 2021
+
+Ces deux jours j'ai consacré mon temps à réviser les différents aspects essentiels de Latex, et j'ai pu commencer l'écriture du papier scientifique de PhaistOS (partie compilateur) en anglais.
+
+Voici un extrait (introduction) :
+> To make PhaistOS reach its goal, that is generate a linux module containing a custom I/O policy, it needs to go throught multiple steps. First, to interpret the content of the file describing the policy wrote by the final user, PhaistOS uses a parser associated with a lexer to transcribe the content into an AST, thus decomposing it into different nodes. This AST is then used by a visitor, that will go throught each nodes, and for each one, it will work with a template dedicated for this specific node. Each template describes what needs to be done for the node, and potentially what needs to be outputed in the final C code.
+
+---
+
+# Journal du 27 Juillet 2021
+
+Aujourd'hui nous avons discuté avec Nicolas des différentes modifications que j'avais apporté aux templates du compilateur pour la génération de code ainsi qu'au Makefile que j'ai créé. Voici les tâches supplémentaires que je pourrai faire si j'ai le temps :
+ - Enregistré le nom du module au moment du lancement du compilateur via un système d'argument en ocaml au lieu de gérer ça dans le Makefile.
+ - Changer de méthode pour l'abstraction de la compléxité du langage noyau. Actuellement une précompilation CPP nous permet de faire des remplacements dans la politique écrite par l'utilisateur pour avoir du code C compatible avec le module sortant. Cette précompilation est possible car un template intègre au début de chaque fichier des `#define`. Mais cette méthode n'est pas la bonne car faire un appel CPP n'est pas nécessaire, on peut très bien gérer cette abstraction dans les templates concernés, et ainsi se débarasser de la dépendance non-nécessaire.
+
+Nous avons aussi discuté du rapport (qui est à rendre le 16 août) et du papier (qui est a rendre le 6 août). La priorité passe donc sur le papier, qui m'aidera biensur à rédiger le rapport (*tout benef'*).
+
+J'ai donc commencé à rédiger le papier tout en corrigeant certaines incohérence dans le code (il y a toujours du code à remanier, souvent dans la structure avec les scripts et les makefile, si on en veut, on en a ^^).
+
+---
+
 # Journal du 26 Juillet 2021
 
 Le plan du rapport à été fixé, je l'ai envoyé pour validation à Nicolas et Vincent.
