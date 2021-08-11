@@ -1,3 +1,14 @@
+# Journal du 30 Juillet, 2 & 3 Août 2021
+
+> Les vacances qui n'en sont pas trop ;)
+
+ - J'ai probablement finis ma partie sur le papier PhaistOS.
+ - J'ai aussi fourni une base de benchmarks à Nicolas.
+ - J'ai modifié un peu PhaistOS pour la compile (nom module et templates).
+ - J'ai fais une image avec son aide pour tester phaistos sur un vrai système et non-plus une VM.
+
+---
+
 # Journal du 28 & 29 Juillet 2021
 
 Ces deux jours j'ai consacré mon temps à réviser les différents aspects essentiels de Latex, et j'ai pu commencer l'écriture du papier scientifique de PhaistOS (partie compilateur) en anglais.
