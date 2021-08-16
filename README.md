@@ -2,7 +2,7 @@
 
 du **03/05/2021** au **31/08/2021** avec interruption du 31/07/2021 au 15/08/2021
 
-**Rapport de stage disponible __[ici]__(https://github.com/McReaper/InternshipINFO4Report).**
+**Rapport de stage disponible __[ici](https://github.com/McReaper/InternshipINFO4Report)__.**
 
 ---
 
